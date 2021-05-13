@@ -21,21 +21,21 @@
         }
 
         public ISMIP2InputContext Create(
-            ImmutableList<PositiveInt> lengthOfStayDays,
-            ImmutableList<KeyValuePair<PositiveInt, FhirDateTime>> planningHorizon,
-            ImmutableList<PositiveInt> states,
+            ImmutableList<INullableValue<int>> lengthOfStayDays,
+            ImmutableList<KeyValuePair<INullableValue<int>, FhirDateTime>> planningHorizon,
+            ImmutableList<INullableValue<int>> states,
             Bundle surgeons,
-            ImmutableList<KeyValuePair<FhirDateTime, FhirBoolean>> activePeriods,
-            ImmutableList<KeyValuePair<FhirDateTime, PositiveInt>> dayNumberTimeBlocks,
-            ImmutableList<KeyValuePair<FhirDateTime, PositiveInt>> dayBedCapacities,
-            ImmutableList<Tuple<Organization, PositiveInt, FhirDecimal>> surgeonStateProbabilities,
-            ImmutableList<KeyValuePair<Organization, PositiveInt>> surgeonLengthOfStayMaximums,
-            ImmutableList<Tuple<Organization, PositiveInt, PositiveInt>> surgeonStateMaximumNumberPatients,
-            ImmutableList<Tuple<Organization, PositiveInt, FhirDecimal>> surgeonDayLengthOfStayProbabilities,
-            ImmutableList<KeyValuePair<Organization, PositiveInt>> surgeonNumberStates,
-            ImmutableList<KeyValuePair<Organization, PositiveInt>> surgeonNumberTimeBlocks,
-            FhirDecimal meanWeight,
-            FhirDecimal varianceWeight)
+            ImmutableList<KeyValuePair<FhirDateTime, INullableValue<bool>>> activePeriods,
+            ImmutableList<KeyValuePair<FhirDateTime, INullableValue<int>>> dayNumberTimeBlocks,
+            ImmutableList<KeyValuePair<FhirDateTime, INullableValue<int>>> dayBedCapacities,
+            ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<decimal>>> surgeonStateProbabilities,
+            ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonLengthOfStayMaximums,
+            ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<int>>> surgeonStateMaximumNumberPatients,
+            ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<decimal>>> surgeonDayLengthOfStayProbabilities,
+            ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonNumberStates,
+            ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonNumberTimeBlocks,
+            INullableValue<decimal> meanWeight,
+            INullableValue<decimal> varianceWeight)
         {
             ISMIP2InputContext context = null;
 

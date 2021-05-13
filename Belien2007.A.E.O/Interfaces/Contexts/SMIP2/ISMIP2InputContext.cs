@@ -8,34 +8,34 @@
 
     public interface ISMIP2InputContext
     {
-        ImmutableList<PositiveInt> LengthOfStayDays { get; }
+        ImmutableList<INullableValue<int>> LengthOfStayDays { get; }
 
-        ImmutableList<KeyValuePair<PositiveInt, FhirDateTime>> PlanningHorizon { get; }
+        ImmutableList<KeyValuePair<INullableValue<int>, FhirDateTime>> PlanningHorizon { get; }
 
-        ImmutableList<PositiveInt> States { get; }
+        ImmutableList<INullableValue<int>> States { get; }
 
         Bundle Surgeons { get; }
 
-        ImmutableList<KeyValuePair<FhirDateTime, FhirBoolean>> ActivePeriods { get; }
+        ImmutableList<KeyValuePair<FhirDateTime, INullableValue<bool>>> ActivePeriods { get; }
 
-        ImmutableList<KeyValuePair<FhirDateTime, PositiveInt>> DayNumberTimeBlocks { get; }
+        ImmutableList<KeyValuePair<FhirDateTime, INullableValue<int>>> DayNumberTimeBlocks { get; }
 
-        ImmutableList<KeyValuePair<FhirDateTime, PositiveInt>> DayBedCapacities { get; }
+        ImmutableList<KeyValuePair<FhirDateTime, INullableValue<int>>> DayBedCapacities { get; }
 
-        ImmutableList<Tuple<Organization, PositiveInt, FhirDecimal>> SurgeonStateProbabilities { get; }
+        ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<decimal>>> SurgeonStateProbabilities { get; }
 
-        ImmutableList<KeyValuePair<Organization, PositiveInt>> SurgeonLengthOfStayMaximums { get; }
+        ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgeonLengthOfStayMaximums { get; }
 
-        ImmutableList<Tuple<Organization, PositiveInt, PositiveInt>> SurgeonStateMaximumNumberPatients { get; }
+        ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<int>>> SurgeonStateMaximumNumberPatients { get; }
 
-        ImmutableList<Tuple<Organization, PositiveInt, FhirDecimal>> SurgeonDayLengthOfStayProbabilities { get; }
+        ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<decimal>>> SurgeonDayLengthOfStayProbabilities { get; }
 
-        ImmutableList<KeyValuePair<Organization, PositiveInt>> SurgeonNumberStates { get; }
+        ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgeonNumberStates { get; }
 
-        ImmutableList<KeyValuePair<Organization, PositiveInt>> SurgeonNumberTimeBlocks { get; }
+        ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgeonNumberTimeBlocks { get; }
 
-        FhirDecimal MeanWeight { get; }
+        INullableValue<decimal> MeanWeight { get; }
 
-        FhirDecimal VarianceWeight { get; }
+        INullableValue<decimal> VarianceWeight { get; }
     }
 }

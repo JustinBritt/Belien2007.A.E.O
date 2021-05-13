@@ -21,18 +21,18 @@
         }
 
         public IMIP2InputContext Create(
-            ImmutableList<PositiveInt> lengthOfStayDays,
-            ImmutableList<KeyValuePair<PositiveInt, FhirDateTime>> planningHorizon,
+            ImmutableList<INullableValue<int>> lengthOfStayDays,
+            ImmutableList<KeyValuePair<INullableValue<int>, FhirDateTime>> planningHorizon,
             Bundle surgeons,
-            ImmutableList<KeyValuePair<FhirDateTime, FhirBoolean>> activePeriods,
-            ImmutableList<KeyValuePair<FhirDateTime, PositiveInt>> dayNumberTimeBlocks,
-            ImmutableList<KeyValuePair<FhirDateTime, PositiveInt>> dayBedCapacities,
-            ImmutableList<KeyValuePair<Organization, PositiveInt>> surgeonLengthOfStayMaximums,
-            ImmutableList<KeyValuePair<Organization, PositiveInt>> surgeonMaximumNumberPatients,
-            ImmutableList<Tuple<Organization, PositiveInt, FhirDecimal>> surgeonDayLengthOfStayProbabilities,
-            ImmutableList<KeyValuePair<Organization, PositiveInt>> surgeonNumberTimeBlocks,
-            FhirDecimal meanWeight,
-            FhirDecimal varianceWeight)
+            ImmutableList<KeyValuePair<FhirDateTime, INullableValue<bool>>> activePeriods,
+            ImmutableList<KeyValuePair<FhirDateTime, INullableValue<int>>> dayNumberTimeBlocks,
+            ImmutableList<KeyValuePair<FhirDateTime, INullableValue<int>>> dayBedCapacities,
+            ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonLengthOfStayMaximums,
+            ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonMaximumNumberPatients,
+            ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<decimal>>> surgeonDayLengthOfStayProbabilities,
+            ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonNumberTimeBlocks,
+            INullableValue<decimal> meanWeight,
+            INullableValue<decimal> varianceWeight)
         {
             IMIP2InputContext context = null;
 

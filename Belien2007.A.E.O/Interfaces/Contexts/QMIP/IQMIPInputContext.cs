@@ -8,24 +8,24 @@
 
     public interface IQMIPInputContext
     {
-        ImmutableList<PositiveInt> LengthOfStayDays { get; }
+        ImmutableList<INullableValue<int>> LengthOfStayDays { get; }
 
-        ImmutableList<KeyValuePair<PositiveInt, FhirDateTime>> PlanningHorizon { get; }
+        ImmutableList<KeyValuePair<INullableValue<int>, FhirDateTime>> PlanningHorizon { get; }
 
         Bundle Surgeons { get; }
 
-        ImmutableList<KeyValuePair<FhirDateTime, FhirBoolean>> ActivePeriods { get; }
+        ImmutableList<KeyValuePair<FhirDateTime, INullableValue<bool>>> ActivePeriods { get; }
 
-        ImmutableList<KeyValuePair<FhirDateTime, PositiveInt>> DayNumberTimeBlocks { get; }
+        ImmutableList<KeyValuePair<FhirDateTime, INullableValue<int>>> DayNumberTimeBlocks { get; }
 
-        ImmutableList<KeyValuePair<FhirDateTime, PositiveInt>> DayBedCapacities { get; }
+        ImmutableList<KeyValuePair<FhirDateTime, INullableValue<int>>> DayBedCapacities { get; }
 
-        ImmutableList<KeyValuePair<Organization, PositiveInt>> SurgeonLengthOfStayMaximums { get; }
+        ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgeonLengthOfStayMaximums { get; }
 
-        ImmutableList<KeyValuePair<Organization, PositiveInt>> SurgeonMaximumNumberPatients { get; }
+        ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgeonMaximumNumberPatients { get; }
 
-        ImmutableList<Tuple<Organization, PositiveInt, FhirDecimal>> SurgeonDayLengthOfStayProbabilities { get; }
+        ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<decimal>>> SurgeonDayLengthOfStayProbabilities { get; }
 
-        ImmutableList<KeyValuePair<Organization, PositiveInt>> SurgeonNumberTimeBlocks { get; }
+        ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgeonNumberTimeBlocks { get; }
     }
 }

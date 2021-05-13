@@ -15,18 +15,18 @@
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public MIP2InputContext(
-            ImmutableList<PositiveInt> lengthOfStayDays,
-            ImmutableList<KeyValuePair<PositiveInt, FhirDateTime>> planningHorizon,
+            ImmutableList<INullableValue<int>> lengthOfStayDays,
+            ImmutableList<KeyValuePair<INullableValue<int>, FhirDateTime>> planningHorizon,
             Bundle surgeons,
-            ImmutableList<KeyValuePair<FhirDateTime, FhirBoolean>> activePeriods,
-            ImmutableList<KeyValuePair<FhirDateTime, PositiveInt>> dayNumberTimeBlocks,
-            ImmutableList<KeyValuePair<FhirDateTime, PositiveInt>> dayBedCapacities,
-            ImmutableList<KeyValuePair<Organization, PositiveInt>> surgeonLengthOfStayMaximums,
-            ImmutableList<KeyValuePair<Organization, PositiveInt>> surgeonMaximumNumberPatients,
-            ImmutableList<Tuple<Organization, PositiveInt, FhirDecimal>> surgeonDayLengthOfStayProbabilities,
-            ImmutableList<KeyValuePair<Organization, PositiveInt>> surgeonNumberTimeBlocks,
-            FhirDecimal meanWeight,
-            FhirDecimal varianceWeight)
+            ImmutableList<KeyValuePair<FhirDateTime, INullableValue<bool>>> activePeriods,
+            ImmutableList<KeyValuePair<FhirDateTime, INullableValue<int>>> dayNumberTimeBlocks,
+            ImmutableList<KeyValuePair<FhirDateTime, INullableValue<int>>> dayBedCapacities,
+            ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonLengthOfStayMaximums,
+            ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonMaximumNumberPatients,
+            ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<decimal>>> surgeonDayLengthOfStayProbabilities,
+            ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonNumberTimeBlocks,
+            INullableValue<decimal> meanWeight,
+            INullableValue<decimal> varianceWeight)
         {
             this.LengthOfStayDays = lengthOfStayDays;
 
@@ -53,28 +53,28 @@
             this.VarianceWeight = varianceWeight;
         }
 
-        public ImmutableList<PositiveInt> LengthOfStayDays { get; }
+        public ImmutableList<INullableValue<int>> LengthOfStayDays { get; }
 
-        public ImmutableList<KeyValuePair<PositiveInt, FhirDateTime>> PlanningHorizon { get; }
+        public ImmutableList<KeyValuePair<INullableValue<int>, FhirDateTime>> PlanningHorizon { get; }
 
         public Bundle Surgeons { get; }
 
-        public ImmutableList<KeyValuePair<FhirDateTime, FhirBoolean>> ActivePeriods { get; }
+        public ImmutableList<KeyValuePair<FhirDateTime, INullableValue<bool>>> ActivePeriods { get; }
 
-        public ImmutableList<KeyValuePair<FhirDateTime, PositiveInt>> DayNumberTimeBlocks { get; }
+        public ImmutableList<KeyValuePair<FhirDateTime, INullableValue<int>>> DayNumberTimeBlocks { get; }
 
-        public ImmutableList<KeyValuePair<FhirDateTime, PositiveInt>> DayBedCapacities { get; }
+        public ImmutableList<KeyValuePair<FhirDateTime, INullableValue<int>>> DayBedCapacities { get; }
 
-        public ImmutableList<KeyValuePair<Organization, PositiveInt>> SurgeonLengthOfStayMaximums { get; }
+        public ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgeonLengthOfStayMaximums { get; }
 
-        public ImmutableList<KeyValuePair<Organization, PositiveInt>> SurgeonMaximumNumberPatients { get; }
+        public ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgeonMaximumNumberPatients { get; }
 
-        public ImmutableList<Tuple<Organization, PositiveInt, FhirDecimal>> SurgeonDayLengthOfStayProbabilities { get; }
+        public ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<decimal>>> SurgeonDayLengthOfStayProbabilities { get; }
 
-        public ImmutableList<KeyValuePair<Organization, PositiveInt>> SurgeonNumberTimeBlocks { get; }
+        public ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgeonNumberTimeBlocks { get; }
 
-        public FhirDecimal MeanWeight { get; }
+        public INullableValue<decimal> MeanWeight { get; }
 
-        public FhirDecimal VarianceWeight { get; }
+        public INullableValue<decimal> VarianceWeight { get; }
     }
 }

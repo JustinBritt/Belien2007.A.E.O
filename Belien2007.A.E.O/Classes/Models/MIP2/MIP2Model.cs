@@ -55,19 +55,19 @@
             // d
             this.d = indicesAbstractFactory.CreatedFactory().Create(
                 this.Context.LengthOfStayDays
-                .Select(x => indexElementsAbstractFactory.CreatedIndexElementFactory().Create(x))
+                .Select(x => indexElementsAbstractFactory.CreatedIndexElementFactory().Create((PositiveInt)x))
                 .ToImmutableList());
 
             // d1
             this.d1 = indicesAbstractFactory.Created1Factory().Create(
                 this.Context.LengthOfStayDays
-                .Select(x => indexElementsAbstractFactory.Created1IndexElementFactory().Create(x))
+                .Select(x => indexElementsAbstractFactory.Created1IndexElementFactory().Create((PositiveInt)x))
                 .ToImmutableList());
 
             // d2
             this.d2 = indicesAbstractFactory.Created2Factory().Create(
                 this.Context.LengthOfStayDays
-                .Select(x => indexElementsAbstractFactory.Created2IndexElementFactory().Create(x))
+                .Select(x => indexElementsAbstractFactory.Created2IndexElementFactory().Create((PositiveInt)x))
                 .ToImmutableList());
 
             // i
@@ -130,7 +130,7 @@
                 this.Context.ActivePeriods
                 .Select(x => parameterElementsAbstractFactory.CreateAParameterElementFactory().Create(
                     this.i.GetElementAt(x.Key),
-                    x.Value))
+                    (FhirBoolean)x.Value))
                 .ToImmutableList());
 
             // b(i)
@@ -138,7 +138,7 @@
                 this.Context.DayNumberTimeBlocks
                 .Select(x => parameterElementsAbstractFactory.CreatebParameterElementFactory().Create(
                     this.i.GetElementAt(x.Key),
-                    x.Value))
+                    (PositiveInt)x.Value))
                 .ToImmutableList());
 
             // c(i)
@@ -146,7 +146,7 @@
                 this.Context.DayBedCapacities
                 .Select(x => parameterElementsAbstractFactory.CreatecParameterElementFactory().Create(
                     this.i.GetElementAt(x.Key),
-                    x.Value))
+                    (PositiveInt)x.Value))
                 .ToImmutableList());
 
             // m(s)
@@ -154,7 +154,7 @@
                 this.Context.SurgeonLengthOfStayMaximums
                 .Select(x => parameterElementsAbstractFactory.CreatemParameterElementFactory().Create(
                     this.s.GetElementAt(x.Key),
-                    x.Value))
+                    (PositiveInt)x.Value))
                 .ToImmutableList());
 
             // n(s)
@@ -162,7 +162,7 @@
                 this.Context.SurgeonMaximumNumberPatients
                 .Select(x => parameterElementsAbstractFactory.CreateCommonnParameterElementFactory().Create(
                     this.s.GetElementAt(x.Key),
-                    x.Value))
+                    (PositiveInt)x.Value))
                 .ToImmutableList());
 
             // p(s, d)
@@ -170,8 +170,8 @@
                 this.Context.SurgeonDayLengthOfStayProbabilities
                 .Select(x => parameterElementsAbstractFactory.CreatepParameterElementFactory().Create(
                     this.s.GetElementAt(x.Item1),
-                    this.d.GetElementAt(x.Item2),
-                    x.Item3))
+                    this.d.GetElementAt((PositiveInt)x.Item2),
+                    (FhirDecimal)x.Item3))
                 .ToImmutableList());
 
             // r(s)
@@ -179,16 +179,16 @@
                 this.Context.SurgeonNumberTimeBlocks
                 .Select(x => parameterElementsAbstractFactory.CreaterParameterElementFactory().Create(
                     this.s.GetElementAt(x.Key),
-                    x.Value))
+                    (PositiveInt)x.Value))
                 .ToImmutableList());
 
             // wMean
             this.wMean = parametersAbstractFactory.CreatewMeanFactory().Create(
-                this.Context.MeanWeight);
+                (FhirDecimal)this.Context.MeanWeight);
 
             // wVariance
             this.wVariance = parametersAbstractFactory.CreatewVarianceFactory().Create(
-                this.Context.VarianceWeight);
+                (FhirDecimal)this.Context.VarianceWeight);
 
             // Variables
 
