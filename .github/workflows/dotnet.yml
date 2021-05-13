@@ -24,4 +24,4 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Publish package
-      run: dotnet nuget push /home/runner/work/Belien2007.A.E.O/Belien2007.A.E.O/bin/Release/*.nupkg
+      run: dotnet nuget push /home/runner/work/Belien2007.A.E.O/Belien2007.A.E.O/Belien2007.A.E.O/bin/Release/*.nupkg
