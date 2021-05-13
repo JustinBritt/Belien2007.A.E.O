@@ -1,0 +1,49 @@
+﻿namespace Belien2007.A.E.O.Classes.Variables.Common
+{
+    using System.Collections.Immutable;
+    using System.Linq;
+
+    using log4net;
+
+    using OPTANO.Modeling.Optimization;
+
+    using Belien2007.A.E.O.Interfaces.IndexElements.Common;
+    using Belien2007.A.E.O.Interfaces.Indices.Common;
+    using Belien2007.A.E.O.Interfaces.Variables.Common;
+    using Belien2007.A.E.O.InterfacesFactories.ResultElements.Common.DayBedOccupancyVariances;
+    using Belien2007.A.E.O.InterfacesFactories.Results.Common.DayBedOccupancyVariances;
+
+    internal sealed class Variance : IVariance
+    {
+        private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+        public Variance(
+            VariableCollection<IiIndexElement> value)
+        {
+            this.Value = value;
+        }
+
+        public VariableCollection<IiIndexElement> Value { get; }
+
+        public decimal GetElementAt(
+            IiIndexElement iIndexElement)
+        {
+            return (decimal)this.Value[iIndexElement].Value;
+        }
+
+        public Interfaces.Results.Common.DayBedOccupancyVariances.IVariance GetElementsAt(
+            IVarianceResultElementFactory VarianceResultElementFactory,
+            IVarianceFactory VarianceFactory,
+            Ii i)
+        {
+            return VarianceFactory.Create(
+                i.Value
+                .Select(
+                    w => VarianceResultElementFactory.Create(
+                        w,
+                        this.GetElementAt(
+                            w)))
+                .ToImmutableList());
+        }
+    }
+}
