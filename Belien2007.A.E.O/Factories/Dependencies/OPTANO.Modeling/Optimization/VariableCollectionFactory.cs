@@ -38,7 +38,9 @@
             }
             catch (Exception exception)
             {
-                this.Log.Error("Exception message: " + exception.Message + " and stacktrace " + exception.StackTrace);
+                this.Log.Error(
+                    exception.Message,
+                    exception);
             }
 
             return variableCollection;
@@ -66,7 +68,9 @@
             }
             catch (Exception exception)
             {
-                this.Log.Error("Exception message: " + exception.Message + " and stacktrace " + exception.StackTrace);
+                this.Log.Error(
+                    exception.Message,
+                    exception);
             }
 
             return variableCollection;
@@ -96,7 +100,9 @@
             }
             catch (Exception exception)
             {
-                this.Log.Error("Exception message: " + exception.Message + " and stacktrace " + exception.StackTrace);
+                this.Log.Error(
+                    exception.Message,
+                    exception);
             }
 
             return variableCollection;
@@ -128,7 +134,9 @@
             }
             catch (Exception exception)
             {
-                this.Log.Error("Exception message: " + exception.Message + " and stacktrace " + exception.StackTrace);
+                this.Log.Error(
+                    exception.Message,
+                    exception);
             }
 
             return variableCollection;
@@ -162,7 +170,9 @@
             }
             catch (Exception exception)
             {
-                this.Log.Error("Exception message: " + exception.Message + " and stacktrace " + exception.StackTrace);
+                this.Log.Error(
+                    exception.Message,
+                    exception);
             }
 
             return variableCollection;
