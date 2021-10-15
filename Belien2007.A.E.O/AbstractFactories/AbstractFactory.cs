@@ -13,7 +13,7 @@
 
         public AbstractFactory()
         {
-            using (FileStream fileStream = File.OpenRead("Belien2007.A.E.O.config"))
+            using (FileStream fileStream = File.OpenRead($"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.config"))
             {
                 log4net.Config.XmlConfigurator.Configure(
                     LogManager.GetRepository(System.Reflection.Assembly.GetExecutingAssembly()),
