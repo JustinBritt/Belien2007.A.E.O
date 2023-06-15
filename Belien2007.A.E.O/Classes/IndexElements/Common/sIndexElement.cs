@@ -1,5 +1,7 @@
 ﻿namespace Belien2007.A.E.O.Classes.IndexElements.Common
 {
+    using System;
+
     using log4net;
 
     using Hl7.Fhir.Model;
@@ -18,5 +20,14 @@
 
         /// <inheritdoc/>
         public Organization Value { get; }
+
+        /// <inheritdoc/>
+        public int CompareTo(
+            IsIndexElement other)
+        {
+            return String.CompareOrdinal(
+                other.Value.Id,
+                this.Value.Id);
+        }
     }
 }
