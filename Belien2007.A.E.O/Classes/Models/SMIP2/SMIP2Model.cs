@@ -170,7 +170,7 @@
                 .Select(x => parameterElementsAbstractFactory.CreatehParameterElementFactory().Create(
                     this.s.GetElementAt(x.Item1),
                     this.k.GetElementAt(x.Item2),
-                    (FhirDecimal)x.Item3))
+                    x.Item3))
                 .ToImmutableList());
 
             // m(s)
@@ -196,7 +196,7 @@
                 .Select(x => parameterElementsAbstractFactory.CreatepParameterElementFactory().Create(
                     this.s.GetElementAt(x.Item1),
                     this.d.GetElementAt(x.Item2),
-                    (FhirDecimal)x.Item3))
+                    x.Item3))
                 .ToImmutableList());
 
             // q(s)
@@ -217,11 +217,11 @@
 
             // wMean
             this.wMean = parametersAbstractFactory.CreatewMeanFactory().Create(
-                (FhirDecimal)this.Context.MeanWeight);
+                this.Context.MeanWeight);
 
             // wVariance
             this.wVariance = parametersAbstractFactory.CreatewVarianceFactory().Create(
-                (FhirDecimal)this.Context.VarianceWeight);
+                this.Context.VarianceWeight);
 
             // Variables
 

@@ -7,6 +7,6 @@
     public interface IwMeanFactory
     {
         IwMean Create(
-            FhirDecimal value);
+            INullableValue<decimal> value);
     }
 }

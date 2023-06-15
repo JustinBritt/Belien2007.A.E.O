@@ -14,7 +14,7 @@
         public pParameterElement(
             IsIndexElement sIndexElement,
             IdIndexElement dIndexElement,
-            FhirDecimal value)
+            INullableValue<decimal> value)
         {
             this.sIndexElement = sIndexElement;
 
@@ -27,6 +27,6 @@
 
         public IdIndexElement dIndexElement { get; }
 
-        public FhirDecimal Value { get; }
+        public INullableValue<decimal> Value { get; }
     }
 }

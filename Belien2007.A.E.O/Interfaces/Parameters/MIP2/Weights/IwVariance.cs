@@ -4,6 +4,6 @@
 
     public interface IwVariance
     {
-        FhirDecimal Value { get; }
+        INullableValue<decimal> Value { get; }
     }
 }

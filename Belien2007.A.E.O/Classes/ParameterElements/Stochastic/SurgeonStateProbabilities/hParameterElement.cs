@@ -15,7 +15,7 @@
         public hParameterElement(
             IsIndexElement sIndexElement,
             IkIndexElement kIndexElement,
-            FhirDecimal value)
+            INullableValue<decimal> value)
         {
             this.sIndexElement = sIndexElement;
 
@@ -28,6 +28,6 @@
 
         public IkIndexElement kIndexElement { get; }
 
-        public FhirDecimal Value { get; }
+        public INullableValue<decimal> Value { get; }
     }
 }

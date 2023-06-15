@@ -141,7 +141,7 @@
                 .Select(x => parameterElementsAbstractFactory.CreatepParameterElementFactory().Create(
                     this.s.GetElementAt(x.Item1),
                     this.d.GetElementAt(x.Item2),
-                    (FhirDecimal)x.Item3))
+                    x.Item3))
                 .ToImmutableList());
 
             // r(s)

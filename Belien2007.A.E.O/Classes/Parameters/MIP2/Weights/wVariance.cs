@@ -11,11 +11,11 @@
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public wVariance(
-            FhirDecimal value)
+            INullableValue<decimal> value)
         {
             this.Value = value;
         }
 
-        public FhirDecimal Value { get; }
+        public INullableValue<decimal> Value { get; }
     }
 }

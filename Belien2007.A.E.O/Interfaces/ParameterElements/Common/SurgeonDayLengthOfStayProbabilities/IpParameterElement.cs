@@ -10,6 +10,6 @@
 
         IdIndexElement dIndexElement { get; }
 
-        FhirDecimal Value { get; }
+        INullableValue<decimal> Value { get; }
     }
 }

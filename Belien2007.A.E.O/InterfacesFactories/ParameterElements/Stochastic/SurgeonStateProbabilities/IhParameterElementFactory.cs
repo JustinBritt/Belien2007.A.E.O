@@ -11,6 +11,6 @@
         IhParameterElement Create(
             IsIndexElement sIndexElement,
             IkIndexElement kIndexElement,
-            FhirDecimal value);
+            INullableValue<decimal> value);
     }
 }

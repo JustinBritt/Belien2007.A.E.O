@@ -7,6 +7,6 @@
     public interface IwVarianceFactory
     {
         IwVariance Create(
-            FhirDecimal value);
+            INullableValue<decimal> value);
     }
 }

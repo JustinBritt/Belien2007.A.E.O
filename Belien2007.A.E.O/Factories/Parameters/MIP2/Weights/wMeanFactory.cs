@@ -19,7 +19,7 @@
         }
 
         public IwMean Create(
-            FhirDecimal value)
+            INullableValue<decimal> value)
         {
             IwMean parameter = null;
 

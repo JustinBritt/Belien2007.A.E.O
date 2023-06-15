@@ -19,7 +19,7 @@
         }
 
         public IwVariance Create(
-            FhirDecimal value)
+            INullableValue<decimal> value)
         {
             IwVariance parameter = null;
 

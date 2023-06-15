@@ -22,7 +22,7 @@
         public IpParameterElement Create(
             IsIndexElement sIndexElement,
             IdIndexElement dIndexElement,
-            FhirDecimal value)
+            INullableValue<decimal> value)
         {
             IpParameterElement parameterElement = null;
 
