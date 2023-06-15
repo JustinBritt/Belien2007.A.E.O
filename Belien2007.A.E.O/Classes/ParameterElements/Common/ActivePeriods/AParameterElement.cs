@@ -13,7 +13,7 @@
 
         public AParameterElement(
             IiIndexElement iIndexElement,
-            FhirBoolean value)
+            INullableValue<bool> value)
         {
             this.iIndexElement = iIndexElement;
 
@@ -22,6 +22,6 @@
 
         public IiIndexElement iIndexElement { get; }
 
-        public FhirBoolean Value { get; }
+        public INullableValue<bool> Value { get; }
     }
 }

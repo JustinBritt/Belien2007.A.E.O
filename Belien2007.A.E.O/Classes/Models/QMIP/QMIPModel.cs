@@ -100,7 +100,7 @@
                 this.Context.ActivePeriods
                 .Select(x => parameterElementsAbstractFactory.CreateAParameterElementFactory().Create(
                     this.i.GetElementAt(x.Key),
-                    (FhirBoolean)x.Value))
+                    x.Value))
                 .ToImmutableList());
 
             // b(i)

@@ -21,7 +21,7 @@
 
         public IAParameterElement Create(
             IiIndexElement iIndexElement,
-            FhirBoolean value)
+            INullableValue<bool> value)
         {
             IAParameterElement parameterElement = null;
 

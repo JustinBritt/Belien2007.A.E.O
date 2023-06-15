@@ -8,6 +8,6 @@
     {
         IiIndexElement iIndexElement { get; }
 
-        FhirBoolean Value { get; }
+        INullableValue<bool> Value { get; }
     }
 }
