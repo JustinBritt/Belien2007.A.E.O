@@ -18,5 +18,13 @@
 
         /// <inheritdoc/>
         public INullableValue<int> Value { get; }
+
+        /// <inheritdoc/>
+        public int CompareTo(
+            IdIndexElement other)
+        {
+            return this.Value.Value.Value.CompareTo(
+                other.Value.Value.Value);
+        }
     }
 }
