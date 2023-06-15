@@ -8,6 +8,6 @@
     {
         IsIndexElement sIndexElement { get; }
 
-        PositiveInt Value { get; }
+        INullableValue<int> Value { get; }
     }
 }

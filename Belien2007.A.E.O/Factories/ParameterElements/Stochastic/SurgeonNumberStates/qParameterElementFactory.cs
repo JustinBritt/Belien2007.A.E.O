@@ -21,7 +21,7 @@
 
         public IqParameterElement Create(
             IsIndexElement sIndexElement,
-            PositiveInt value)
+            INullableValue<int> value)
         {
             IqParameterElement parameterElement = null;
 

@@ -7,6 +7,6 @@
         /// <summary>
         /// Gets the day.
         /// </summary>
-        PositiveInt Value { get; }
+        INullableValue<int> Value { get; }
     }
 }

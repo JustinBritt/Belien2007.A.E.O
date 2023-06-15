@@ -8,6 +8,6 @@
     {
         IiIndexElement iIndexElement { get; }
 
-        PositiveInt Value { get; }
+        INullableValue<int> Value { get; }
     }
 }

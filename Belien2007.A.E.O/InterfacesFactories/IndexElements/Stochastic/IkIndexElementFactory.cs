@@ -7,6 +7,6 @@
     public interface IkIndexElementFactory
     {
         IkIndexElement Create(
-            PositiveInt value);
+            INullableValue<int> value);
     }
 }

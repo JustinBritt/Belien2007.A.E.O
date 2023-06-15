@@ -15,7 +15,7 @@
         public StochasticnParameterElement(
             IsIndexElement sIndexElement,
             IkIndexElement kIndexElement,
-            PositiveInt value)
+            INullableValue<int> value)
         {
             this.sIndexElement = sIndexElement;
 
@@ -28,6 +28,6 @@
 
         public IkIndexElement kIndexElement { get; }
 
-        public PositiveInt Value { get; }
+        public INullableValue<int> Value { get; }
     }
 }

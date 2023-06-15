@@ -13,7 +13,7 @@
 
         public qParameterElement(
             IsIndexElement sIndexElement,
-            PositiveInt value)
+            INullableValue<int> value)
         {
             this.sIndexElement = sIndexElement;
 
@@ -22,6 +22,6 @@
 
         public IsIndexElement sIndexElement { get; }
 
-        public PositiveInt Value { get; }
+        public INullableValue<int> Value { get; }
     }
 }

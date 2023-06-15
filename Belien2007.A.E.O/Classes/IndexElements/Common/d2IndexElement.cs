@@ -11,12 +11,12 @@
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public d2IndexElement(
-            PositiveInt value)
+            INullableValue<int> value)
         {
             this.Value = value;
         }
 
         /// <inheritdoc/>
-        public PositiveInt Value { get; }
+        public INullableValue<int> Value { get; }
     }
 }

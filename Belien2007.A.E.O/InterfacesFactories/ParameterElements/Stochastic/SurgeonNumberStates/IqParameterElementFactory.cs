@@ -9,6 +9,6 @@
     {
         IqParameterElement Create(
             IsIndexElement sIndexElement,
-            PositiveInt value);
+            INullableValue<int> value);
     }
 }

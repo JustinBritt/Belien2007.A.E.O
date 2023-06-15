@@ -14,6 +14,6 @@
             int value);
 
         IkIndexElement GetElementAt(
-            PositiveInt value);
+            INullableValue<int> value);
     }
 }

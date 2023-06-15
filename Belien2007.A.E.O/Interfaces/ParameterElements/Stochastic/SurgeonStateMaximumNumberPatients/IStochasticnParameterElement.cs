@@ -11,6 +11,6 @@
 
         IkIndexElement kIndexElement { get; }
 
-        PositiveInt Value { get; }
+        INullableValue<int> Value { get; }
     }
 }

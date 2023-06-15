@@ -14,7 +14,7 @@
             int value);
 
         IdIndexElement GetElementAt(
-            PositiveInt value);
+            INullableValue<int> value);
 
         ImmutableList<IdIndexElement> GetNthElementsAt(
             int startKey,

@@ -19,7 +19,7 @@
         }
 
         public IkIndexElement Create(
-            PositiveInt value)
+            INullableValue<int> value)
         {
             IkIndexElement indexElement = null;
 

@@ -19,7 +19,7 @@
         }
 
         public IdIndexElement Create(
-            PositiveInt value)
+            INullableValue<int> value)
         {
             IdIndexElement indexElement = null;
 

@@ -58,19 +58,19 @@
             // d
             this.d = indicesAbstractFactory.CreatedFactory().Create(
                 this.Context.LengthOfStayDays
-                .Select(x => indexElementsAbstractFactory.CreatedIndexElementFactory().Create((PositiveInt)x))
+                .Select(x => indexElementsAbstractFactory.CreatedIndexElementFactory().Create(x))
                 .ToImmutableList());
 
             // d1
             this.d1 = indicesAbstractFactory.Created1Factory().Create(
                 this.Context.LengthOfStayDays
-                .Select(x => indexElementsAbstractFactory.Created1IndexElementFactory().Create((PositiveInt)x))
+                .Select(x => indexElementsAbstractFactory.Created1IndexElementFactory().Create(x))
                 .ToImmutableList());
 
             // d2
             this.d2 = indicesAbstractFactory.Created2Factory().Create(
                 this.Context.LengthOfStayDays
-                .Select(x => indexElementsAbstractFactory.Created2IndexElementFactory().Create((PositiveInt)x))
+                .Select(x => indexElementsAbstractFactory.Created2IndexElementFactory().Create(x))
                 .ToImmutableList());
 
             // i
@@ -92,7 +92,7 @@
             // k
             this.k = indicesAbstractFactory.CreatekFactory().Create(
                 this.Context.States
-                .Select(x => indexElementsAbstractFactory.CreatekIndexElementFactory().Create((PositiveInt)x))
+                .Select(x => indexElementsAbstractFactory.CreatekIndexElementFactory().Create(x))
                 .ToImmutableList());
 
             // s
@@ -153,7 +153,7 @@
                 this.Context.DayNumberTimeBlocks
                 .Select(x => parameterElementsAbstractFactory.CreatebParameterElementFactory().Create(
                     this.i.GetElementAt(x.Key),
-                    (PositiveInt)x.Value))
+                    x.Value))
                 .ToImmutableList());
 
             // c(i)
@@ -161,7 +161,7 @@
                 this.Context.DayBedCapacities
                 .Select(x => parameterElementsAbstractFactory.CreatecParameterElementFactory().Create(
                     this.i.GetElementAt(x.Key),
-                    (PositiveInt)x.Value))
+                    x.Value))
                 .ToImmutableList());
 
             // h(s, k)
@@ -169,7 +169,7 @@
                 this.Context.SurgeonStateProbabilities
                 .Select(x => parameterElementsAbstractFactory.CreatehParameterElementFactory().Create(
                     this.s.GetElementAt(x.Item1),
-                    this.k.GetElementAt((PositiveInt)x.Item2),
+                    this.k.GetElementAt(x.Item2),
                     (FhirDecimal)x.Item3))
                 .ToImmutableList());
 
@@ -178,7 +178,7 @@
                 this.Context.SurgeonLengthOfStayMaximums
                 .Select(x => parameterElementsAbstractFactory.CreatemParameterElementFactory().Create(
                     this.s.GetElementAt(x.Key),
-                    (PositiveInt)x.Value))
+                    x.Value))
                 .ToImmutableList());
 
             // n(s, k)
@@ -186,8 +186,8 @@
                 this.Context.SurgeonStateMaximumNumberPatients
                 .Select(x => parameterElementsAbstractFactory.CreateStochasticnParameterElementFactory().Create(
                     this.s.GetElementAt(x.Item1),
-                    this.k.GetElementAt((PositiveInt)x.Item2),
-                    (PositiveInt)x.Item3))
+                    this.k.GetElementAt(x.Item2),
+                    x.Item3))
                 .ToImmutableList());
 
             // p(s, d)
@@ -195,7 +195,7 @@
                 this.Context.SurgeonDayLengthOfStayProbabilities
                 .Select(x => parameterElementsAbstractFactory.CreatepParameterElementFactory().Create(
                     this.s.GetElementAt(x.Item1),
-                    this.d.GetElementAt((PositiveInt)x.Item2),
+                    this.d.GetElementAt(x.Item2),
                     (FhirDecimal)x.Item3))
                 .ToImmutableList());
 
@@ -204,7 +204,7 @@
                 this.Context.SurgeonNumberStates
                 .Select(x => parameterElementsAbstractFactory.CreateqParameterElementFactory().Create(
                     this.s.GetElementAt(x.Key),
-                    (PositiveInt)x.Value))
+                    x.Value))
                 .ToImmutableList());
 
             // r(s)
@@ -212,7 +212,7 @@
                 this.Context.SurgeonNumberTimeBlocks
                 .Select(x => parameterElementsAbstractFactory.CreaterParameterElementFactory().Create(
                     this.s.GetElementAt(x.Key),
-                    (PositiveInt)x.Value))
+                    x.Value))
                 .ToImmutableList());
 
             // wMean

@@ -21,7 +21,7 @@
 
         public IbParameterElement Create(
             IiIndexElement iIndexElement,
-            PositiveInt value)
+            INullableValue<int> value)
         {
             IbParameterElement parameterElement = null;
 

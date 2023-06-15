@@ -23,7 +23,7 @@
         public IStochasticnParameterElement Create(
             IsIndexElement sIndexElement,
             IkIndexElement kIndexElement,
-            PositiveInt value)
+            INullableValue<int> value)
         {
             IStochasticnParameterElement parameterElement = null;
 

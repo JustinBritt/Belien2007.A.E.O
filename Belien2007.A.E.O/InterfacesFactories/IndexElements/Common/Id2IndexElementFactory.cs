@@ -7,6 +7,6 @@
     public interface Id2IndexElementFactory
     {
         Id2IndexElement Create(
-            PositiveInt value);
+            INullableValue<int> value);
     }
 }
