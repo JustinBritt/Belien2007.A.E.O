@@ -16,9 +16,7 @@
             this.Value = value;
         }
 
-        /// <summary>
-        /// Gets the state.
-        /// </summary>
+        /// <inheritdoc/>
         public PositiveInt Value { get; }
     }
 }

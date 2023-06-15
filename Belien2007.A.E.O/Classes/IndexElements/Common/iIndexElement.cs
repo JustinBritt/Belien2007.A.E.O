@@ -19,14 +19,10 @@
             this.Value = value;
         }
 
-        /// <summary>
-        /// Gets the key of the day.
-        /// </summary>
+        /// <inheritdoc/>
         public int Key { get; }
 
-        /// <summary>
-        /// Gets the value of the day.
-        /// </summary>
+        /// <inheritdoc/>
         public FhirDateTime Value { get; }
     }
 }
