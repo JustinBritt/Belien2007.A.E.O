@@ -27,6 +27,8 @@
             this.cParameterElementFactory = cParameterElementFactory;
 
             this.i = i;
+
+            this.RedBlackTree = new RedBlackTree<IiIndexElement, IcParameterElement>();
         }
 
         private IcParameterElementFactory cParameterElementFactory { get; }
