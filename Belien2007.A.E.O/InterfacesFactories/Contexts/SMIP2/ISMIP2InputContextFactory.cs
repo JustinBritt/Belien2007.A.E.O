@@ -11,7 +11,7 @@
     public interface ISMIP2InputContextFactory
     {
         ISMIP2InputContext Create(
-            ImmutableList<INullableValue<int>> lengthOfStayDays,
+            ImmutableSortedSet<INullableValue<int>> lengthOfStayDays,
             ImmutableList<KeyValuePair<INullableValue<int>, FhirDateTime>> planningHorizon,
             ImmutableList<INullableValue<int>> states,
             Bundle surgeons,

@@ -8,7 +8,7 @@
 
     public interface IMIP2InputContext
     {
-        ImmutableList<INullableValue<int>> LengthOfStayDays { get; }
+        ImmutableSortedSet<INullableValue<int>> LengthOfStayDays { get; }
 
         ImmutableList<KeyValuePair<INullableValue<int>, FhirDateTime>> PlanningHorizon { get; }
 
