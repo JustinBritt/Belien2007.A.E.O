@@ -1,11 +1,13 @@
 ﻿namespace Belien2007.A.E.O.Factories.Parameters.Common.SurgeonMaximumNumberPatients
 {
     using System;
-    using System.Collections.Immutable;
 
     using log4net;
 
+    using NGenerics.DataStructures.Trees;
+
     using Belien2007.A.E.O.Classes.Parameters.Common.SurgeonMaximumNumberPatients;
+    using Belien2007.A.E.O.Interfaces.IndexElements.Common;
     using Belien2007.A.E.O.Interfaces.ParameterElements.Common.SurgeonMaximumNumberPatients;
     using Belien2007.A.E.O.Interfaces.Parameters.Common.SurgeonMaximumNumberPatients;
     using Belien2007.A.E.O.InterfacesFactories.Parameters.Common.SurgeonMaximumNumberPatients;
@@ -19,7 +21,7 @@
         }
 
         public ICommonn Create(
-            ImmutableList<ICommonnParameterElement> value)
+            RedBlackTree<IsIndexElement, ICommonnParameterElement> value)
         {
             ICommonn parameter = null;
 

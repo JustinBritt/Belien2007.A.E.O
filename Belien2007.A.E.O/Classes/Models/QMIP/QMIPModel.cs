@@ -8,6 +8,9 @@
 
     using Hl7.Fhir.Model;
 
+    using NGenerics.DataStructures.Trees;
+    using NGenerics.Patterns.Visitor;
+
     using OPTANO.Modeling.Optimization;
     using OPTANO.Modeling.Optimization.Enums;
 
@@ -24,6 +27,7 @@
     using Belien2007.A.E.O.Interfaces.Parameters.Common.SurgeonMaximumNumberPatients;
     using Belien2007.A.E.O.Interfaces.Parameters.Common.SurgeonNumberTimeBlocks;
     using Belien2007.A.E.O.Interfaces.Variables.Common;
+    using Belien2007.A.E.O.InterfacesVisitors.Contexts;
 
     internal sealed class QMIPModel : IQMIPModel
     {
@@ -131,12 +135,15 @@
                 .ToImmutableList());
 
             // n(s)
+            ISurgeonMaximumNumberPatientsVisitor<Organization, INullableValue<int>> surgeonMaximumNumberPatientsVisitor = new Belien2007.A.E.O.Visitors.Contexts.SurgeonMaximumNumberPatientsVisitor<Organization, INullableValue<int>>(
+                parameterElementsAbstractFactory.CreateCommonnParameterElementFactory(),
+                this.s);
+
+            this.Context.SurgeonMaximumNumberPatients.AcceptVisitor(
+                surgeonMaximumNumberPatientsVisitor);
+
             this.n = parametersAbstractFactory.CreateCommonnFactory().Create(
-                this.Context.SurgeonMaximumNumberPatients
-                .Select(x => parameterElementsAbstractFactory.CreateCommonnParameterElementFactory().Create(
-                    this.s.GetElementAt(x.Key),
-                    x.Value))
-                .ToImmutableList());
+                surgeonMaximumNumberPatientsVisitor.RedBlackTree);
 
             // p(s, d)
             this.p = parametersAbstractFactory.CreatepFactory().Create(
