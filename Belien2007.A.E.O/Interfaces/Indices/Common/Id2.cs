@@ -1,11 +1,13 @@
 ﻿namespace Belien2007.A.E.O.Interfaces.Indices.Common
 {
-    using System.Collections.Immutable;
+    using Hl7.Fhir.Model;
+
+    using NGenerics.DataStructures.Trees;
 
     using Belien2007.A.E.O.Interfaces.IndexElements.Common;
 
     public interface Id2
     {
-        ImmutableList<Id2IndexElement> Value { get; }
+        RedBlackTree<INullableValue<int>, Id2IndexElement> Value { get; }
     }
 }
