@@ -1,9 +1,8 @@
 ﻿namespace Belien2007.A.E.O.Classes.Parameters.Common.SurgeonNumberTimeBlocks
 {
-    using System.Collections.Immutable;
-    using System.Linq;
-
     using log4net;
+
+    using NGenerics.DataStructures.Trees;
 
     using Belien2007.A.E.O.Interfaces.IndexElements.Common;
     using Belien2007.A.E.O.Interfaces.ParameterElements.Common.SurgeonNumberTimeBlocks;
@@ -14,20 +13,17 @@
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public r(
-            ImmutableList<IrParameterElement> value)
+            RedBlackTree<IsIndexElement, IrParameterElement> value)
         {
             this.Value = value;
         }
 
-        public ImmutableList<IrParameterElement> Value { get; }
+        public RedBlackTree<IsIndexElement, IrParameterElement> Value { get; }
 
         public int GetElementAtAsint(
             IsIndexElement sIndexElement)
         {
-            return this.Value
-                .Where(x => x.sIndexElement == sIndexElement)
-                .Select(x => x.Value.Value.Value)
-                .SingleOrDefault();
+            return this.Value[sIndexElement].Value.Value.Value;
         }
     }
 }

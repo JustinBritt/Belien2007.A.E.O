@@ -8,6 +8,9 @@
 
     using Hl7.Fhir.Model;
 
+    using NGenerics.DataStructures.Trees;
+    using NGenerics.Patterns.Visitor;
+
     using OPTANO.Modeling.Optimization;
     using OPTANO.Modeling.Optimization.Enums;
 
@@ -30,6 +33,7 @@
     using Belien2007.A.E.O.Interfaces.Parameters.Stochastic.SurgeonStateProbabilities;
     using Belien2007.A.E.O.Interfaces.Variables.Common;
     using Belien2007.A.E.O.Interfaces.Variables.MIP2;
+    using Belien2007.A.E.O.InterfacesVisitors.Contexts;
 
     internal sealed class SMIP2Model : ISMIP2Model
     {
@@ -214,12 +218,15 @@
                 .ToImmutableList());
 
             // r(s)
+            ISurgeonNumberTimeBlocksVisitor<Organization, INullableValue<int>> surgeonNumberTimeBlocksVisitor = new Belien2007.A.E.O.Visitors.Contexts.SurgeonNumberTimeBlocksVisitor<Organization, INullableValue<int>>(
+                parameterElementsAbstractFactory.CreaterParameterElementFactory(),
+                this.s);
+
+            this.Context.SurgeonNumberTimeBlocks.AcceptVisitor(
+                surgeonNumberTimeBlocksVisitor);
+
             this.r = parametersAbstractFactory.CreaterFactory().Create(
-                this.Context.SurgeonNumberTimeBlocks
-                .Select(x => parameterElementsAbstractFactory.CreaterParameterElementFactory().Create(
-                    this.s.GetElementAt(x.Key),
-                    x.Value))
-                .ToImmutableList());
+                surgeonNumberTimeBlocksVisitor.RedBlackTree);
 
             // wMean
             this.wMean = parametersAbstractFactory.CreatewMeanFactory().Create(

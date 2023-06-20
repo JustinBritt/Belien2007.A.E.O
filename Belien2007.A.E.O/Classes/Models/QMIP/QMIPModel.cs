@@ -155,12 +155,15 @@
                 .ToImmutableList());
 
             // r(s)
+            ISurgeonNumberTimeBlocksVisitor<Organization, INullableValue<int>> surgeonNumberTimeBlocksVisitor = new Belien2007.A.E.O.Visitors.Contexts.SurgeonNumberTimeBlocksVisitor<Organization, INullableValue<int>>(
+                parameterElementsAbstractFactory.CreaterParameterElementFactory(),
+                this.s);
+
+            this.Context.SurgeonNumberTimeBlocks.AcceptVisitor(
+                surgeonNumberTimeBlocksVisitor);
+
             this.r = parametersAbstractFactory.CreaterFactory().Create(
-                this.Context.SurgeonNumberTimeBlocks
-                .Select(x => parameterElementsAbstractFactory.CreaterParameterElementFactory().Create(
-                    this.s.GetElementAt(x.Key),
-                    x.Value))
-                .ToImmutableList());
+                surgeonNumberTimeBlocksVisitor.RedBlackTree);
 
             // Variables
 

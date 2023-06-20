@@ -28,7 +28,7 @@
 
         ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<decimal>>> SurgeonDayLengthOfStayProbabilities { get; }
 
-        ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgeonNumberTimeBlocks { get; }
+        RedBlackTree<Organization, INullableValue<int>> SurgeonNumberTimeBlocks { get; }
 
         INullableValue<decimal> MeanWeight { get; }
 
