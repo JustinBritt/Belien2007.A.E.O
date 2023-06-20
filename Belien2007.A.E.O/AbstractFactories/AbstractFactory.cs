@@ -44,6 +44,24 @@
             return abstractFactory;
         }
 
+        public IComparersAbstractFactory CreateComparersAbstractFactory()
+        {
+            IComparersAbstractFactory abstractFactory = null;
+
+            try
+            {
+                abstractFactory = new ComparersAbstractFactory();
+            }
+            catch (Exception exception)
+            {
+                this.Log.Error(
+                    exception.Message,
+                    exception);
+            }
+
+            return abstractFactory;
+        }
+
         public IConfigurationsAbstractFactory CreateConfigurationsAbstractFactory()
         {
             IConfigurationsAbstractFactory abstractFactory = null;

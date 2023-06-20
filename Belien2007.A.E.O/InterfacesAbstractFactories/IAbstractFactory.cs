@@ -4,6 +4,8 @@
     {
         ICalculationsAbstractFactory CreateCalculationsAbstractFactory();
 
+        IComparersAbstractFactory CreateComparersAbstractFactory();
+
         IConfigurationsAbstractFactory CreateConfigurationsAbstractFactory();
 
         IConstraintElementsAbstractFactory CreateConstraintElementsAbstractFactory();
