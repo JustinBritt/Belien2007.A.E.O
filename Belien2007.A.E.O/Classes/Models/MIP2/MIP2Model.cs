@@ -62,6 +62,7 @@
 
             // d1
             this.d1 = indicesAbstractFactory.Created1Factory().Create(
+                comparersAbstractFactory.CreateNullableValueintComparerFactory().Create(),
                 this.Context.LengthOfStayDays
                 .Select(x => indexElementsAbstractFactory.Created1IndexElementFactory().Create(x))
                 .ToImmutableList());
@@ -122,7 +123,7 @@
             this.sjd1d2 = crossJoinsAbstractFactory.Createsjd1d2Factory().Create(
                 this.s.Value.Values
                 .SelectMany(b => this.j.Value, (a, b) => crossJoinElementsAbstractFactory.CreatesjCrossJoinElementFactory().Create(a, b))
-                .SelectMany(b => this.d1.Value, (a, b) => crossJoinElementsAbstractFactory.Createsjd1CrossJoinElementFactory().Create(a.sIndexElement, a.jIndexElement, b))
+                .SelectMany(b => this.d1.Value.Values, (a, b) => crossJoinElementsAbstractFactory.Createsjd1CrossJoinElementFactory().Create(a.sIndexElement, a.jIndexElement, b))
                 .SelectMany(b => this.d2.Value, (a, b) => crossJoinElementsAbstractFactory.Createsjd1d2CrossJoinElementFactory().Create(a.sIndexElement, a.jIndexElement, a.d1IndexElement, b))
                 .ToImmutableList());
 
