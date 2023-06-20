@@ -7,6 +7,8 @@
 
     using Hl7.Fhir.Model;
 
+    using NGenerics.DataStructures.Trees;
+
     using Belien2007.A.E.O.Interfaces.IndexElements.Common;
 
     internal sealed class d : Belien2007.A.E.O.Interfaces.Indices.Common.Id
@@ -14,17 +16,17 @@
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public d(
-            ImmutableList<IdIndexElement> value)
+            RedBlackTree<INullableValue<int>, IdIndexElement> value)
         {
             this.Value = value;
         }
 
-        public ImmutableList<IdIndexElement> Value { get; }
+        public RedBlackTree<INullableValue<int>, IdIndexElement> Value { get; }
 
         public IdIndexElement GetElementAt(
             int value)
         {
-            return this.Value
+            return this.Value.Values
                 .Where(x => x.Value.Value.Value == value)
                 .SingleOrDefault();
         }
@@ -32,9 +34,7 @@
         public IdIndexElement GetElementAt(
             INullableValue<int> value)
         {
-            return this.Value
-                .Where(x => x.Value == value)
-                .SingleOrDefault();
+            return this.Value[value];
         }
 
         public ImmutableList<IdIndexElement> GetNthElementsAt(

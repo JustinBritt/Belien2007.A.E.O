@@ -5,9 +5,13 @@
 
     using log4net;
 
+    using Hl7.Fhir.Model;
+
+    using NGenerics.DataStructures.Trees;
+
     using Belien2007.A.E.O.Classes.Indices.Common;
+    using Belien2007.A.E.O.Interfaces.Comparers;
     using Belien2007.A.E.O.Interfaces.IndexElements.Common;
-    using Belien2007.A.E.O.Interfaces.Indices.Common;
     using Belien2007.A.E.O.InterfacesFactories.Indices.Common;
 
     internal sealed class dFactory : IdFactory
@@ -18,15 +22,18 @@
         {
         }
 
-        public Id Create(
+        public Belien2007.A.E.O.Interfaces.Indices.Common.Id Create(
+            INullableValueintComparer nullableValueintComparer,
             ImmutableList<IdIndexElement> value)
         {
-            Id index = null;
+            Belien2007.A.E.O.Interfaces.Indices.Common.Id index = null;
 
             try
             {
                 index = new d(
-                    value);
+                    this.CreateRedBlackTree(
+                        nullableValueintComparer,
+                        value));
             }
             catch (Exception exception)
             {
@@ -36,6 +43,23 @@
             }
 
             return index;
+        }
+
+        private RedBlackTree<INullableValue<int>, IdIndexElement> CreateRedBlackTree(
+            INullableValueintComparer nullableValueintComparer,
+            ImmutableList<IdIndexElement> value)
+        {
+            RedBlackTree<INullableValue<int>, IdIndexElement> redBlackTree = new RedBlackTree<INullableValue<int>, IdIndexElement>(
+                nullableValueintComparer);
+
+            foreach (IdIndexElement dIndexElement in value)
+            {
+                redBlackTree.Add(
+                    dIndexElement.Value,
+                    dIndexElement);
+            }
+
+            return redBlackTree;
         }
     }
 }

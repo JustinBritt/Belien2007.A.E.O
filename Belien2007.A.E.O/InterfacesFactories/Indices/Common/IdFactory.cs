@@ -2,12 +2,14 @@
 {
     using System.Collections.Immutable;
 
+    using Belien2007.A.E.O.Interfaces.Comparers;
     using Belien2007.A.E.O.Interfaces.IndexElements.Common;
     using Belien2007.A.E.O.Interfaces.Indices.Common;
 
     public interface IdFactory
     {
         Id Create(
-           ImmutableList<IdIndexElement> value);
+            INullableValueintComparer nullableValueintComparer,
+            ImmutableList<IdIndexElement> value);
     }
 }

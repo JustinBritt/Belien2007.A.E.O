@@ -52,6 +52,7 @@
 
             // d
             this.d = indicesAbstractFactory.CreatedFactory().Create(
+                comparersAbstractFactory.CreateNullableValueintComparerFactory().Create(),
                 this.Context.LengthOfStayDays
                 .Select(x => indexElementsAbstractFactory.CreatedIndexElementFactory().Create(x))
                 .ToImmutableList());
