@@ -95,6 +95,7 @@
 
             // k
             this.k = indicesAbstractFactory.CreatekFactory().Create(
+                comparersAbstractFactory.CreateNullableValueintComparerFactory().Create(),
                 this.Context.States
                 .Select(x => indexElementsAbstractFactory.CreatekIndexElementFactory().Create(x))
                 .ToImmutableList());
@@ -140,7 +141,7 @@
             // sk
             this.sk = crossJoinsAbstractFactory.CreateskFactory().Create(
                 this.s.Value.Values
-                .SelectMany(b => this.k.Value, (a, b) => crossJoinElementsAbstractFactory.CreateskCrossJoinElementFactory().Create(a, b))
+                .SelectMany(b => this.k.Value.Values, (a, b) => crossJoinElementsAbstractFactory.CreateskCrossJoinElementFactory().Create(a, b))
                 .ToImmutableList());
 
             // Parameters

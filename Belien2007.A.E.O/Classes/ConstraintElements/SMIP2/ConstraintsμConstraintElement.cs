@@ -62,7 +62,7 @@
 
                     double RHS_Sum = 0;
 
-                    foreach (IkIndexElement kIndexElement in k.Value)
+                    foreach (IkIndexElement kIndexElement in k.Value.Values)
                     {
                         for (int w = dLowerBound;
                             w <= m.GetElementAtAsint(sIndexElement);

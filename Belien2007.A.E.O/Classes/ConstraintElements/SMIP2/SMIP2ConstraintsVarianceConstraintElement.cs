@@ -71,7 +71,7 @@
                     double RHS_Sum_EV = 0;
 
                     // E[V[U(i, j, s) | N(s)]]
-                    foreach (IkIndexElement kIndexElement in k.Value)
+                    foreach (IkIndexElement kIndexElement in k.Value.Values)
                     {
                         for (int w = dLowerBound;
                             w <= m.GetElementAtAsint(sIndexElement);
@@ -147,7 +147,7 @@
                     double RHS_Sum_VE = 0;
 
                     // V[E[U(i, j, s) | N(s)]]
-                    foreach (IkIndexElement kIndexElement in k.Value)
+                    foreach (IkIndexElement kIndexElement in k.Value.Values)
                     {
                         for (int w = dLowerBound;
                             w <= m.GetElementAtAsint(sIndexElement);
@@ -169,7 +169,7 @@
                                     i.Getl());
                         }
 
-                        foreach (IkIndexElement kIndexElementPrime in k.Value)
+                        foreach (IkIndexElement kIndexElementPrime in k.Value.Values)
                         {
                             for (int w = dLowerBound;
                                 w <= m.GetElementAtAsint(sIndexElement);
@@ -216,7 +216,7 @@
 
                     ImmutableList<Tuple<IsIndexElement, IjIndexElement, IkIndexElement, double>> RHS_Sums_sjk_VE = sjk_VE_Builder.ToImmutableList();
 
-                    foreach (IkIndexElement kIndexElement in k.Value)
+                    foreach (IkIndexElement kIndexElement in k.Value.Values)
                     {
                         double RHS_Sum_sjk = 
                             RHS_Sums_sjk_EV
@@ -241,7 +241,7 @@
 
                     double RHS_Sum = 0;
 
-                    foreach (IkIndexElement kIndexElement in k.Value)
+                    foreach (IkIndexElement kIndexElement in k.Value.Values)
                     {
                         RHS_Sum +=
                             RHS_Sums_sjk

@@ -24,7 +24,7 @@
             ISurgeonStateNumberPatients surgeonStateNumberPatients)
         {
             return stateNumberPatientsFactory.Create(
-                k.Value
+                k.Value.Values
                 .Select(w => stateNumberPatientsResultElementCalculation.Calculate(
                     stateNumberPatientsResultElementFactory,
                     w,
