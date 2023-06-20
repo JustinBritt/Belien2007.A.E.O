@@ -24,7 +24,7 @@
 
         ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgeonLengthOfStayMaximums { get; }
 
-        ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgeonMaximumNumberPatients { get; }
+        RedBlackTree<Organization, INullableValue<int>> SurgeonMaximumNumberPatients { get; }
 
         ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<decimal>>> SurgeonDayLengthOfStayProbabilities { get; }
 
