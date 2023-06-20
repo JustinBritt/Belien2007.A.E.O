@@ -26,6 +26,7 @@
         {
             return abstractFactory.CreateSolutionsAbstractFactory().CreateSMIP2SolutionFactory().Create().Solve(
                 abstractFactory.CreateCalculationsAbstractFactory(),
+                abstractFactory.CreateComparersAbstractFactory(),
                 abstractFactory.CreateConstraintElementsAbstractFactory(),
                 abstractFactory.CreateConstraintsAbstractFactory(),
                 abstractFactory.CreateContextsAbstractFactory(),

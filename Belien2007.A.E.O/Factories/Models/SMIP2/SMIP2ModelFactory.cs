@@ -19,6 +19,7 @@
         }
 
         public ISMIP2Model Create(
+            IComparersAbstractFactory comparersAbstractFactory,
             IConstraintElementsAbstractFactory constraintElementsAbstractFactory,
             IConstraintsAbstractFactory constraintsAbstractFactory,
             ICrossJoinElementsAbstractFactory crossJoinElementsAbstractFactory,
@@ -37,6 +38,7 @@
             try
             {
                 model = new SMIP2Model(
+                    comparersAbstractFactory,
                     constraintElementsAbstractFactory,
                     constraintsAbstractFactory,
                     crossJoinElementsAbstractFactory,

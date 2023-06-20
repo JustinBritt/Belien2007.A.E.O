@@ -25,6 +25,7 @@
 
         public Task<IQMIPOutputContext> Solve(
             ICalculationsAbstractFactory calculationsAbstractFactory,
+            IComparersAbstractFactory comparersAbstractFactory,
             IConstraintElementsAbstractFactory constraintElementsAbstractFactory,
             IConstraintsAbstractFactory constraintsAbstractFactory,
             IContextsAbstractFactory contextsAbstractFactory,
@@ -51,6 +52,7 @@
                 using (ModelScope modelScope = dependenciesAbstractFactory.CreateModelScopeFactory().Create(QMIPConfiguration.Value))
                 {
                     IQMIPModel model = modelsAbstractFactory.CreateQMIPModelFactory().Create(
+                        comparersAbstractFactory,
                         constraintElementsAbstractFactory,
                         constraintsAbstractFactory,
                         crossJoinElementsAbstractFactory,

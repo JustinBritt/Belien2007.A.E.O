@@ -24,7 +24,7 @@
             Ix x)
         {
             return surgeonNumberAssignedDaysFactory.Create(
-                s.Value
+                s.Value.Values
                 .Select(w => surgeonNumberAssignedDaysResultElementCalculation.Calculate(
                     surgeonNumberAssignedDaysResultElementFactory,
                     w,

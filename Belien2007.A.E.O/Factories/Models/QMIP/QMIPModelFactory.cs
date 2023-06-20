@@ -19,6 +19,7 @@
         }
 
         public IQMIPModel Create(
+            IComparersAbstractFactory comparersAbstractFactory,
             IConstraintElementsAbstractFactory constraintElementsAbstractFactory,
             IConstraintsAbstractFactory constraintsAbstractFactory,
             ICrossJoinElementsAbstractFactory crossJoinElementsAbstractFactory,
@@ -37,6 +38,7 @@
             try
             {
                 model = new QMIPModel(
+                    comparersAbstractFactory,
                     constraintElementsAbstractFactory,
                     constraintsAbstractFactory,
                     crossJoinElementsAbstractFactory,

@@ -40,7 +40,7 @@
 
             ImmutableList<Expression>.Builder builder = ImmutableList.CreateBuilder<Expression>();
 
-            foreach (IsIndexElement sIndexElement in s.Value)
+            foreach (IsIndexElement sIndexElement in s.Value.Values)
             {
                 foreach (IjIndexElement jIndexElement in j.Value.Where(y => A.GetElementAtAsint(y) == 1))
                 {

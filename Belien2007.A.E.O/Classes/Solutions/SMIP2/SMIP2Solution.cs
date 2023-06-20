@@ -25,6 +25,7 @@
 
         public Task<ISMIP2OutputContext> Solve(
             ICalculationsAbstractFactory calculationsAbstractFactory,
+            IComparersAbstractFactory comparersAbstractFactory,
             IConstraintElementsAbstractFactory constraintElementsAbstractFactory,
             IConstraintsAbstractFactory constraintsAbstractFactory,
             IContextsAbstractFactory contextsAbstractFactory,
@@ -51,6 +52,7 @@
                 using (ModelScope modelScope = dependenciesAbstractFactory.CreateModelScopeFactory().Create(SMIP2Configuration.Value))
                 {
                     ISMIP2Model model = modelsAbstractFactory.CreateSMIP2ModelFactory().Create(
+                        comparersAbstractFactory,
                         constraintElementsAbstractFactory,
                         constraintsAbstractFactory,
                         crossJoinElementsAbstractFactory,

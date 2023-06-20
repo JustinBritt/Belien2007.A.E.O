@@ -33,6 +33,7 @@
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public MIP2Model(
+            IComparersAbstractFactory comparersAbstractFactory,
             IConstraintElementsAbstractFactory constraintElementsAbstractFactory,
             IConstraintsAbstractFactory constraintsAbstractFactory,
             ICrossJoinElementsAbstractFactory crossJoinElementsAbstractFactory,
@@ -88,6 +89,7 @@
 
             // s
             this.s = indicesAbstractFactory.CreatesFactory().Create(
+                comparersAbstractFactory.CreateOrganizationComparerFactory().Create(),
                 this.Context.Surgeons
                 .Entry
                 .Where(x => x.Resource is Organization)
@@ -98,26 +100,26 @@
 
             // si
             this.si = crossJoinsAbstractFactory.CreatesiFactory().Create(
-                this.s.Value
+                this.s.Value.Values
                 .SelectMany(b => this.i.Value, (a, b) => crossJoinElementsAbstractFactory.CreatesiCrossJoinElementFactory().Create(a, b))
                 .ToImmutableList());
 
             // sj
             this.sj = crossJoinsAbstractFactory.CreatesjFactory().Create(
-                this.s.Value
+                this.s.Value.Values
                 .SelectMany(b => this.j.Value, (a, b) => crossJoinElementsAbstractFactory.CreatesjCrossJoinElementFactory().Create(a, b))
                 .ToImmutableList());
 
             // sjd
             this.sjd = crossJoinsAbstractFactory.CreatesjdFactory().Create(
-                this.s.Value
+                this.s.Value.Values
                 .SelectMany(b => this.j.Value, (a, b) => crossJoinElementsAbstractFactory.CreatesjCrossJoinElementFactory().Create(a, b))
                 .SelectMany(b => this.d.Value, (a, b) => crossJoinElementsAbstractFactory.CreatesjdCrossJoinElementFactory().Create(a.sIndexElement, a.jIndexElement, b))
                 .ToImmutableList());
 
             // sjd1d2
             this.sjd1d2 = crossJoinsAbstractFactory.Createsjd1d2Factory().Create(
-                this.s.Value
+                this.s.Value.Values
                 .SelectMany(b => this.j.Value, (a, b) => crossJoinElementsAbstractFactory.CreatesjCrossJoinElementFactory().Create(a, b))
                 .SelectMany(b => this.d1.Value, (a, b) => crossJoinElementsAbstractFactory.Createsjd1CrossJoinElementFactory().Create(a.sIndexElement, a.jIndexElement, b))
                 .SelectMany(b => this.d2.Value, (a, b) => crossJoinElementsAbstractFactory.Createsjd1d2CrossJoinElementFactory().Create(a.sIndexElement, a.jIndexElement, a.d1IndexElement, b))
@@ -197,7 +199,7 @@
                 dependenciesAbstractFactory.CreateVariableCollectionFactory().Create(
                     model: this.Model, 
                     indexSet1: this.i.Value.Where(w => A.GetElementAtAsint(w) == 1), 
-                    indexSet2: this.s.Value, 
+                    indexSet2: this.s.Value.Values, 
                     lowerBoundGenerator: (a, b) => 0, 
                     upperBoundGenerator: (a, b) => 
                     Math.Min(
@@ -237,7 +239,7 @@
 
             // Constraints (3.16)
             this.Model.AddConstraints(
-                this.s.Value
+                this.s.Value.Values
                 .Select(
                     w => constraintElementsAbstractFactory.Create_Constraints22_37_316_43_ConstraintElement_Factory().Create(
                         w,

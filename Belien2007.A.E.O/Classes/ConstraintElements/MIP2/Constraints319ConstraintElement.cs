@@ -40,7 +40,7 @@
 
             ImmutableList<Tuple<IsIndexElement, IjIndexElement, double>>.Builder builder = ImmutableList.CreateBuilder<Tuple<IsIndexElement, IjIndexElement, double>>();
 
-            foreach (IsIndexElement sIndexElement in s.Value)
+            foreach (IsIndexElement sIndexElement in s.Value.Values)
             {
                 foreach (IjIndexElement jIndexElement in j.Value.Where(y => A.GetElementAtAsint(y) == 1))
                 {
