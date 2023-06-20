@@ -34,6 +34,24 @@
             return factory;
         }
 
+        public INullableValueintComparerFactory CreateNullableValueintComparerFactory()
+        {
+            INullableValueintComparerFactory factory = null;
+
+            try
+            {
+                factory = new NullableValueintComparerFactory();
+            }
+            catch (Exception exception)
+            {
+                this.Log.Error(
+                    exception.Message,
+                    exception);
+            }
+
+            return factory;
+        }
+
         public IOrganizationComparerFactory CreateOrganizationComparerFactory()
         {
             IOrganizationComparerFactory factory = null;
