@@ -8,6 +8,8 @@
 
     using Hl7.Fhir.Model;
 
+    using NGenerics.DataStructures.Trees;
+
     using Belien2007.A.E.O.Interfaces.Contexts.SMIP2;
 
     public sealed class SMIP2InputContext : ISMIP2InputContext

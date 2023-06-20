@@ -6,6 +6,8 @@
   
     using Hl7.Fhir.Model;
 
+    using NGenerics.DataStructures.Trees;
+
     public interface IQMIPInputContext
     {
         ImmutableSortedSet<INullableValue<int>> LengthOfStayDays { get; }

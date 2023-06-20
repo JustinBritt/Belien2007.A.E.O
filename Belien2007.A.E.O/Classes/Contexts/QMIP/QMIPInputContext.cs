@@ -8,6 +8,8 @@
 
     using Hl7.Fhir.Model;
 
+    using NGenerics.DataStructures.Trees;
+
     using Belien2007.A.E.O.Interfaces.Contexts.QMIP;
 
     internal sealed class QMIPInputContext : IQMIPInputContext

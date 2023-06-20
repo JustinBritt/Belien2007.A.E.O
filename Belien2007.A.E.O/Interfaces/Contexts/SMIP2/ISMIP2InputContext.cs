@@ -6,6 +6,8 @@
 
     using Hl7.Fhir.Model;
 
+    using NGenerics.DataStructures.Trees;
+
     public interface ISMIP2InputContext
     {
         ImmutableSortedSet<INullableValue<int>> LengthOfStayDays { get; }
