@@ -24,7 +24,7 @@
             ImmutableList<KeyValuePair<FhirDateTime, INullableValue<int>>> dayNumberTimeBlocks,
             ImmutableList<KeyValuePair<FhirDateTime, INullableValue<int>>> dayBedCapacities,
             ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonLengthOfStayMaximums,
-            ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonMaximumNumberPatients,
+            RedBlackTree<Organization, INullableValue<int>> surgeonMaximumNumberPatients,
             ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<decimal>>> surgeonDayLengthOfStayProbabilities,
             ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonNumberTimeBlocks)
         {
@@ -63,7 +63,7 @@
 
         public ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgeonLengthOfStayMaximums { get; }
 
-        public ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgeonMaximumNumberPatients { get; }
+        public RedBlackTree<Organization, INullableValue<int>> SurgeonMaximumNumberPatients { get; }
 
         public ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<decimal>>> SurgeonDayLengthOfStayProbabilities { get; }
 

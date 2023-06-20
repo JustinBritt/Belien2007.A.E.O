@@ -8,6 +8,8 @@
 
     using Hl7.Fhir.Model;
 
+    using NGenerics.DataStructures.Trees;
+
     using Belien2007.A.E.O.Classes.Contexts.QMIP;
     using Belien2007.A.E.O.Interfaces.Contexts.QMIP;
     using Belien2007.A.E.O.InterfacesFactories.Contexts.QMIP;
@@ -28,7 +30,7 @@
             ImmutableList<KeyValuePair<FhirDateTime, INullableValue<int>>> dayNumberTimeBlocks,
             ImmutableList<KeyValuePair<FhirDateTime, INullableValue<int>>> dayBedCapacities,
             ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonLengthOfStayMaximums,
-            ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonMaximumNumberPatients,
+            RedBlackTree<Organization, INullableValue<int>> surgeonMaximumNumberPatients,
             ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<decimal>>> surgeonDayLengthOfStayProbabilities,
             ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonNumberTimeBlocks)
         {
