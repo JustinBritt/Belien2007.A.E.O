@@ -142,12 +142,15 @@
                 .ToImmutableList());
 
             // b(i)
+            IDayNumberTimeBlocksVisitor<FhirDateTime, INullableValue<int>> dayNumberTimeBlocksVisitor = new Belien2007.A.E.O.Visitors.Contexts.DayNumberTimeBlocksVisitor<FhirDateTime, INullableValue<int>>(
+                parameterElementsAbstractFactory.CreatebParameterElementFactory(),
+                this.i);
+
+            this.Context.DayNumberTimeBlocks.AcceptVisitor(
+                dayNumberTimeBlocksVisitor);
+
             this.b = parametersAbstractFactory.CreatebFactory().Create(
-                this.Context.DayNumberTimeBlocks
-                .Select(x => parameterElementsAbstractFactory.CreatebParameterElementFactory().Create(
-                    this.i.GetElementAt(x.Key),
-                    x.Value))
-                .ToImmutableList());
+                dayNumberTimeBlocksVisitor.RedBlackTree);
 
             // c(i)
             this.c = parametersAbstractFactory.CreatecFactory().Create(
