@@ -225,12 +225,15 @@
                 surgeonDayLengthOfStayProbabilitiesOuterVisitor.RedBlackTree);
 
             // q(s)
+            ISurgeonNumberStatesVisitor<Organization, INullableValue<int>> surgeonNumberStatesVisitor = new Belien2007.A.E.O.Visitors.Contexts.SurgeonNumberStatesVisitor<Organization, INullableValue<int>>(
+                parameterElementsAbstractFactory.CreateqParameterElementFactory(),
+                this.s);
+
+            this.Context.SurgeonNumberStates.AcceptVisitor(
+                surgeonNumberStatesVisitor);
+
             this.q = parametersAbstractFactory.CreateqFactory().Create(
-                this.Context.SurgeonNumberStates
-                .Select(x => parameterElementsAbstractFactory.CreateqParameterElementFactory().Create(
-                    this.s.GetElementAt(x.Key),
-                    x.Value))
-                .ToImmutableList());
+                surgeonNumberStatesVisitor.RedBlackTree);
 
             // r(s)
             ISurgeonNumberTimeBlocksVisitor<Organization, INullableValue<int>> surgeonNumberTimeBlocksVisitor = new Belien2007.A.E.O.Visitors.Contexts.SurgeonNumberTimeBlocksVisitor<Organization, INullableValue<int>>(
