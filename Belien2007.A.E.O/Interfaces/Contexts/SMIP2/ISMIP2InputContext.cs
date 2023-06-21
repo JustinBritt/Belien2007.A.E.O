@@ -32,7 +32,7 @@
 
         RedBlackTree<Organization, RedBlackTree<INullableValue<int>, INullableValue<decimal>>> SurgeonDayLengthOfStayProbabilities { get; }
 
-        ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgeonNumberStates { get; }
+        RedBlackTree<Organization, INullableValue<int>> SurgeonNumberStates { get; }
 
         RedBlackTree<Organization, INullableValue<int>> SurgeonNumberTimeBlocks { get; }
 

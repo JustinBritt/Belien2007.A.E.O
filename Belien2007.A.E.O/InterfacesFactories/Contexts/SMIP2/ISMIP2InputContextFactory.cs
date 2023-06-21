@@ -23,7 +23,7 @@
             RedBlackTree<Organization, INullableValue<int>> surgeonLengthOfStayMaximums,
             ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<int>>> surgeonStateMaximumNumberPatients,
             RedBlackTree<Organization, RedBlackTree<INullableValue<int>, INullableValue<decimal>>> surgeonDayLengthOfStayProbabilities,
-            ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonNumberStates,
+            RedBlackTree<Organization, INullableValue<int>> surgeonNumberStates,
             RedBlackTree<Organization, INullableValue<int>> surgeonNumberTimeBlocks,
             INullableValue<decimal> meanWeight,
             INullableValue<decimal> varianceWeight);
