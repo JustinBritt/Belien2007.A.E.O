@@ -1,11 +1,13 @@
 ﻿namespace Belien2007.A.E.O.Factories.Parameters.Common.ActivePeriods
 {
     using System;
-    using System.Collections.Immutable;
 
     using log4net;
 
+    using NGenerics.DataStructures.Trees;
+
     using Belien2007.A.E.O.Classes.Parameters.Common.ActivePeriods;
+    using Belien2007.A.E.O.Interfaces.IndexElements.Common;
     using Belien2007.A.E.O.Interfaces.ParameterElements.Common.ActivePeriods;
     using Belien2007.A.E.O.Interfaces.Parameters.Common.ActivePeriods;
     using Belien2007.A.E.O.InterfacesFactories.Parameters.Common.ActivePeriods;
@@ -19,7 +21,7 @@
         }
 
         public IA Create(
-            ImmutableList<IAParameterElement> value)
+            RedBlackTree<IiIndexElement, IAParameterElement> value)
         {
             IA parameter = null;
 

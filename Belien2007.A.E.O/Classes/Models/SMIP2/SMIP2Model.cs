@@ -151,12 +151,15 @@
             // Parameters
 
             // A
+            IActivePeriodsVisitor<FhirDateTime, INullableValue<bool>> activePeriodsVisitor = new Belien2007.A.E.O.Visitors.Contexts.ActivePeriodsVisitor<FhirDateTime, INullableValue<bool>>(
+                parameterElementsAbstractFactory.CreateAParameterElementFactory(),
+                this.i);
+
+            this.Context.ActivePeriods.AcceptVisitor(
+                activePeriodsVisitor);
+
             this.A = parametersAbstractFactory.CreateAFactory().Create(
-                this.Context.ActivePeriods
-                .Select(x => parameterElementsAbstractFactory.CreateAParameterElementFactory().Create(
-                    this.i.GetElementAt(x.Key),
-                    x.Value))
-                .ToImmutableList());
+                activePeriodsVisitor.RedBlackTree);
 
             // b(i)
             IDayNumberTimeBlocksVisitor<FhirDateTime, INullableValue<int>> dayNumberTimeBlocksVisitor = new Belien2007.A.E.O.Visitors.Contexts.DayNumberTimeBlocksVisitor<FhirDateTime, INullableValue<int>>(
