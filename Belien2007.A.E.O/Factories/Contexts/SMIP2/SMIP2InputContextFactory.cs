@@ -33,7 +33,7 @@
             ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<decimal>>> surgeonStateProbabilities,
             RedBlackTree<Organization, INullableValue<int>> surgeonLengthOfStayMaximums,
             ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<int>>> surgeonStateMaximumNumberPatients,
-            ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<decimal>>> surgeonDayLengthOfStayProbabilities,
+            RedBlackTree<Organization, RedBlackTree<INullableValue<int>, INullableValue<decimal>>> surgeonDayLengthOfStayProbabilities,
             ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonNumberStates,
             ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonNumberTimeBlocks,
             INullableValue<decimal> meanWeight,

@@ -210,13 +210,16 @@
                 .ToImmutableList());
 
             // p(s, d)
+            ISurgeonDayLengthOfStayProbabilitiesOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<decimal>>> surgeonDayLengthOfStayProbabilitiesOuterVisitor = new Belien2007.A.E.O.Visitors.Contexts.SurgeonDayLengthOfStayProbabilitiesOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<decimal>>>(
+                parameterElementsAbstractFactory.CreatepParameterElementFactory(),
+                this.d,
+                this.s);
+
+            this.Context.SurgeonDayLengthOfStayProbabilities.AcceptVisitor(
+                surgeonDayLengthOfStayProbabilitiesOuterVisitor);
+
             this.p = parametersAbstractFactory.CreatepFactory().Create(
-                this.Context.SurgeonDayLengthOfStayProbabilities
-                .Select(x => parameterElementsAbstractFactory.CreatepParameterElementFactory().Create(
-                    this.s.GetElementAt(x.Item1),
-                    this.d.GetElementAt(x.Item2),
-                    x.Item3))
-                .ToImmutableList());
+                surgeonDayLengthOfStayProbabilitiesOuterVisitor.RedBlackTree);
 
             // q(s)
             this.q = parametersAbstractFactory.CreateqFactory().Create(

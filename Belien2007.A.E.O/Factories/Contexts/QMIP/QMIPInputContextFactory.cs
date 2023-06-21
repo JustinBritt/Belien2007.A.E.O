@@ -31,7 +31,7 @@
             RedBlackTree<FhirDateTime, INullableValue<int>> dayBedCapacities,
             RedBlackTree<Organization, INullableValue<int>> surgeonLengthOfStayMaximums,
             RedBlackTree<Organization, INullableValue<int>> surgeonMaximumNumberPatients,
-            ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<decimal>>> surgeonDayLengthOfStayProbabilities,
+            RedBlackTree<Organization, RedBlackTree<INullableValue<int>, INullableValue<decimal>>> surgeonDayLengthOfStayProbabilities,
             RedBlackTree<Organization, INullableValue<int>> surgeonNumberTimeBlocks)
         {
             IQMIPInputContext context = null;

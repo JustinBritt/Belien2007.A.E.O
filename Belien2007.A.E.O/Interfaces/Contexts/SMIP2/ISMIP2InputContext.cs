@@ -30,7 +30,7 @@
 
         ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<int>>> SurgeonStateMaximumNumberPatients { get; }
 
-        ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<decimal>>> SurgeonDayLengthOfStayProbabilities { get; }
+        RedBlackTree<Organization, RedBlackTree<INullableValue<int>, INullableValue<decimal>>> SurgeonDayLengthOfStayProbabilities { get; }
 
         ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgeonNumberStates { get; }
 

@@ -25,7 +25,7 @@
             RedBlackTree<FhirDateTime, INullableValue<int>> dayBedCapacities,
             RedBlackTree<Organization, INullableValue<int>> surgeonLengthOfStayMaximums,
             RedBlackTree<Organization, INullableValue<int>> surgeonMaximumNumberPatients,
-            ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<decimal>>> surgeonDayLengthOfStayProbabilities,
+            RedBlackTree<Organization, RedBlackTree<INullableValue<int>, INullableValue<decimal>>> surgeonDayLengthOfStayProbabilities,
             RedBlackTree<Organization, INullableValue<int>> surgeonNumberTimeBlocks)
         {
             this.LengthOfStayDays = lengthOfStayDays;
@@ -65,7 +65,7 @@
 
         public RedBlackTree<Organization, INullableValue<int>> SurgeonMaximumNumberPatients { get; }
 
-        public ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<decimal>>> SurgeonDayLengthOfStayProbabilities { get; }
+        public RedBlackTree<Organization, RedBlackTree<INullableValue<int>, INullableValue<decimal>>> SurgeonDayLengthOfStayProbabilities { get; }
 
         public RedBlackTree<Organization, INullableValue<int>> SurgeonNumberTimeBlocks { get; }
     }
