@@ -31,7 +31,7 @@
             RedBlackTree<FhirDateTime, INullableValue<int>> dayNumberTimeBlocks,
             RedBlackTree<FhirDateTime, INullableValue<int>> dayBedCapacities,
             ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<decimal>>> surgeonStateProbabilities,
-            ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonLengthOfStayMaximums,
+            RedBlackTree<Organization, INullableValue<int>> surgeonLengthOfStayMaximums,
             ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<int>>> surgeonStateMaximumNumberPatients,
             ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<decimal>>> surgeonDayLengthOfStayProbabilities,
             ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonNumberStates,
