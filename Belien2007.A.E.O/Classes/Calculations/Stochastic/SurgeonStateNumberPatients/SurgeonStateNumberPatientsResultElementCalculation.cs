@@ -34,7 +34,7 @@
             return surgeonStateNumberPatientsResultElementFactory.Create(
                 sIndexElement,
                 kIndexElement,
-                i.Value
+                i.Value.Values
                 .Where(w => A.GetElementAtAsint(w) == 1)
                 .Select(w => 
                 x.GetElementAtAsint(

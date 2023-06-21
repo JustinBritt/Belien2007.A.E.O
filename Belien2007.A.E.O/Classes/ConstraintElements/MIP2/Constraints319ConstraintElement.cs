@@ -42,7 +42,7 @@
 
             foreach (IsIndexElement sIndexElement in s.Value.Values)
             {
-                foreach (IjIndexElement jIndexElement in j.Value.Where(y => A.GetElementAtAsint(y) == 1))
+                foreach (IjIndexElement jIndexElement in j.Value.Values.Where(y => A.GetElementAtAsint(y) == 1))
                 {
                     double RHS_Sum = 0;
 

@@ -24,7 +24,7 @@
             Iμ μ)
         {
             Expression expression = Expression.Sum(
-                i.Value
+                i.Value.Values
                 .Where(y => A.GetElementAtAsint(y) == 1)
                 .Select(
                     z => 

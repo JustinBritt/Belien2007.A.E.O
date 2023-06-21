@@ -1,9 +1,12 @@
 ﻿namespace Belien2007.A.E.O.Factories.Indices.Common
 {
     using System;
-    using System.Collections.Immutable;
 
     using log4net;
+
+    using Hl7.Fhir.Model;
+
+    using NGenerics.DataStructures.Trees;
 
     using Belien2007.A.E.O.Classes.Indices.Common;
     using Belien2007.A.E.O.Interfaces.IndexElements.Common;
@@ -19,7 +22,7 @@
         }
 
         public Ij Create(
-            ImmutableList<IjIndexElement> value)
+            RedBlackTree<FhirDateTime, IjIndexElement> value)
         {
             Ij index = null;
 

@@ -25,7 +25,7 @@
             Ix x)
         {
             Expression LHS = Expression.Sum(
-                i.Value
+                i.Value.Values
                 .Where(y => A.GetElementAtAsint(y) == 1)
                 .Select(
                     z => x.Value[z, sIndexElement]));

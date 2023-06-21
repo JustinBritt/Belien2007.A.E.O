@@ -37,7 +37,7 @@
             Ii i)
         {
             return μFactory.Create(
-                i.Value
+                i.Value.Values
                 .Select(
                     w => μResultElementFactory.Create(
                         w,

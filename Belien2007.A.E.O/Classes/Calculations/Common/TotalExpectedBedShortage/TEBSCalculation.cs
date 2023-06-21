@@ -25,7 +25,7 @@
             IEBS EBS)
         {
             return TEBSFactory.Create(
-                i.Value
+                i.Value.Values
                 .Select(w => EBS.GetElementAtAsdecimal(
                     w))
                 .ToImmutableList()
