@@ -12,7 +12,7 @@
     {
         ImmutableSortedSet<INullableValue<int>> LengthOfStayDays { get; }
 
-        ImmutableList<KeyValuePair<INullableValue<int>, FhirDateTime>> PlanningHorizon { get; }
+        RedBlackTree<INullableValue<int>, FhirDateTime> PlanningHorizon { get; }
 
         Bundle Surgeons { get; }
 

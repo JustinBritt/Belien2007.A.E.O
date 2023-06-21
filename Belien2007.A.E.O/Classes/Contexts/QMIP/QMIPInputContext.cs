@@ -18,7 +18,7 @@
 
         public QMIPInputContext(
             ImmutableSortedSet<INullableValue<int>> lengthOfStayDays,
-            ImmutableList<KeyValuePair<INullableValue<int>, FhirDateTime>> planningHorizon,
+            RedBlackTree<INullableValue<int>, FhirDateTime> planningHorizon,
             Bundle surgeons,
             ImmutableList<KeyValuePair<FhirDateTime, INullableValue<bool>>> activePeriods,
             RedBlackTree<FhirDateTime, INullableValue<int>> dayNumberTimeBlocks,
@@ -51,7 +51,7 @@
 
         public ImmutableSortedSet<INullableValue<int>> LengthOfStayDays { get; }
 
-        public ImmutableList<KeyValuePair<INullableValue<int>, FhirDateTime>> PlanningHorizon { get; }
+        public RedBlackTree<INullableValue<int>, FhirDateTime> PlanningHorizon { get; }
 
         public Bundle Surgeons { get; }
 
