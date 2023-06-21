@@ -1,4 +1,4 @@
-﻿namespace Belien2007.A.E.O.Visitors.Contexts
+﻿namespace Belien2007.A.E.O.Visitors.Contexts.Common
 {
     using System.Collections.Generic;
 
@@ -11,7 +11,7 @@
     using Belien2007.A.E.O.Interfaces.IndexElements.Common;
     using Belien2007.A.E.O.Interfaces.ParameterElements.Common.SurgeonDayLengthOfStayProbabilities;
     using Belien2007.A.E.O.InterfacesFactories.ParameterElements.Common.SurgeonDayLengthOfStayProbabilities;
-    using Belien2007.A.E.O.InterfacesVisitors.Contexts;
+    using Belien2007.A.E.O.InterfacesVisitors.Contexts.Common;
 
     internal sealed class SurgeonDayLengthOfStayProbabilitiesInnerVisitor<TKey, TValue> : ISurgeonDayLengthOfStayProbabilitiesInnerVisitor<TKey, TValue>
         where TKey : INullableValue<int>

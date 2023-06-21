@@ -1,4 +1,4 @@
-﻿namespace Belien2007.A.E.O.Visitors.Contexts
+﻿namespace Belien2007.A.E.O.Visitors.Contexts.Common
 {
     using System.Collections.Generic;
 
@@ -10,32 +10,34 @@
 
     using Belien2007.A.E.O.Interfaces.IndexElements.Common;
     using Belien2007.A.E.O.Interfaces.Indices.Common;
-    using Belien2007.A.E.O.Interfaces.ParameterElements.Common.DayNumberAvailableTimeBlocks;
-    using Belien2007.A.E.O.InterfacesFactories.ParameterElements.Common.DayNumberAvailableTimeBlocks;
-    using Belien2007.A.E.O.InterfacesVisitors.Contexts;
+    using Belien2007.A.E.O.Interfaces.ParameterElements.Common.DayBedCapacities;
+    using Belien2007.A.E.O.InterfacesFactories.ParameterElements.Common.DayBedCapacities;
+    using Belien2007.A.E.O.InterfacesVisitors.Contexts.Common;
 
-    internal sealed class DayNumberTimeBlocksVisitor<TKey, TValue> : IDayNumberTimeBlocksVisitor<TKey, TValue>
+    internal sealed class DayBedCapacitiesVisitor<TKey, TValue> : IDayBedCapacitiesVisitor<TKey, TValue>
         where TKey : FhirDateTime
         where TValue : INullableValue<int>
     {
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        public DayNumberTimeBlocksVisitor(
-            IbParameterElementFactory bParameterElementFactory,
+        public DayBedCapacitiesVisitor(
+            IcParameterElementFactory cParameterElementFactory,
             Ii i)
         {
-            this.bParameterElementFactory = bParameterElementFactory;
+            this.cParameterElementFactory = cParameterElementFactory;
 
             this.i = i;
+
+            this.RedBlackTree = new RedBlackTree<IiIndexElement, IcParameterElement>();
         }
 
-        private IbParameterElementFactory bParameterElementFactory { get; }
+        private IcParameterElementFactory cParameterElementFactory { get; }
 
         private Ii i { get; }
 
         public bool HasCompleted => false;
 
-        public RedBlackTree<IiIndexElement, IbParameterElement> RedBlackTree { get; }
+        public RedBlackTree<IiIndexElement, IcParameterElement> RedBlackTree { get; }
 
         public void Visit(
             KeyValuePair<TKey, TValue> obj)
@@ -45,7 +47,7 @@
 
             this.RedBlackTree.Add(
                 iIndexElement,
-                this.bParameterElementFactory.Create(
+                this.cParameterElementFactory.Create(
                     iIndexElement,
                     obj.Value));
         }

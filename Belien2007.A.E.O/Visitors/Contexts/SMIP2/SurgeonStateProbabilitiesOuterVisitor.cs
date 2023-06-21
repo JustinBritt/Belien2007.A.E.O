@@ -1,4 +1,4 @@
-﻿namespace Belien2007.A.E.O.Visitors.Contexts
+﻿namespace Belien2007.A.E.O.Visitors.Contexts.SMIP2
 {
     using System.Collections.Generic;
 
@@ -15,7 +15,7 @@
     using Belien2007.A.E.O.Interfaces.Indices.Stochastic;
     using Belien2007.A.E.O.Interfaces.ParameterElements.Stochastic.SurgeonStateProbabilities;
     using Belien2007.A.E.O.InterfacesFactories.ParameterElements.Stochastic.SurgeonStateProbabilities;
-    using Belien2007.A.E.O.InterfacesVisitors.Contexts;
+    using Belien2007.A.E.O.InterfacesVisitors.Contexts.SMIP2;
    
     internal sealed class SurgeonStateProbabilitiesOuterVisitor<TKey, TValue> : ISurgeonStateProbabilitiesOuterVisitor<TKey, TValue>
         where TKey : Organization

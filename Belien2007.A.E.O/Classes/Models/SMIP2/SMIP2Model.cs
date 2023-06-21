@@ -33,7 +33,8 @@
     using Belien2007.A.E.O.Interfaces.Parameters.Stochastic.SurgeonStateProbabilities;
     using Belien2007.A.E.O.Interfaces.Variables.Common;
     using Belien2007.A.E.O.Interfaces.Variables.MIP2;
-    using Belien2007.A.E.O.InterfacesVisitors.Contexts;
+    using Belien2007.A.E.O.InterfacesVisitors.Contexts.Common;
+    using Belien2007.A.E.O.InterfacesVisitors.Contexts.SMIP2;
 
     internal sealed class SMIP2Model : ISMIP2Model
     {
@@ -82,7 +83,7 @@
                 .ToImmutableList());
 
             // i
-            IPlanningHorizonVisitor<INullableValue<int>, FhirDateTime> planningHorizonVisitor = new Belien2007.A.E.O.Visitors.Contexts.PlanningHorizonVisitor<INullableValue<int>, FhirDateTime>(
+            IPlanningHorizonVisitor<INullableValue<int>, FhirDateTime> planningHorizonVisitor = new Belien2007.A.E.O.Visitors.Contexts.Common.PlanningHorizonVisitor<INullableValue<int>, FhirDateTime>(
                 indexElementsAbstractFactory.CreateiIndexElementFactory(),
                 indexElementsAbstractFactory.CreatejIndexElementFactory(),
                 comparersAbstractFactory.CreateFhirDateTimeComparerFactory().Create());
@@ -151,7 +152,7 @@
             // Parameters
 
             // A
-            IActivePeriodsVisitor<FhirDateTime, INullableValue<bool>> activePeriodsVisitor = new Belien2007.A.E.O.Visitors.Contexts.ActivePeriodsVisitor<FhirDateTime, INullableValue<bool>>(
+            IActivePeriodsVisitor<FhirDateTime, INullableValue<bool>> activePeriodsVisitor = new Belien2007.A.E.O.Visitors.Contexts.Common.ActivePeriodsVisitor<FhirDateTime, INullableValue<bool>>(
                 parameterElementsAbstractFactory.CreateAParameterElementFactory(),
                 this.i);
 
@@ -162,7 +163,7 @@
                 activePeriodsVisitor.RedBlackTree);
 
             // b(i)
-            IDayNumberTimeBlocksVisitor<FhirDateTime, INullableValue<int>> dayNumberTimeBlocksVisitor = new Belien2007.A.E.O.Visitors.Contexts.DayNumberTimeBlocksVisitor<FhirDateTime, INullableValue<int>>(
+            IDayNumberTimeBlocksVisitor<FhirDateTime, INullableValue<int>> dayNumberTimeBlocksVisitor = new Belien2007.A.E.O.Visitors.Contexts.Common.DayNumberTimeBlocksVisitor<FhirDateTime, INullableValue<int>>(
                 parameterElementsAbstractFactory.CreatebParameterElementFactory(),
                 this.i);
 
@@ -173,7 +174,7 @@
                 dayNumberTimeBlocksVisitor.RedBlackTree);
 
             // c(i)
-            IDayBedCapacitiesVisitor<FhirDateTime, INullableValue<int>> dayBedCapacitiesVisitor = new Belien2007.A.E.O.Visitors.Contexts.DayBedCapacitiesVisitor<FhirDateTime, INullableValue<int>>(
+            IDayBedCapacitiesVisitor<FhirDateTime, INullableValue<int>> dayBedCapacitiesVisitor = new Belien2007.A.E.O.Visitors.Contexts.Common.DayBedCapacitiesVisitor<FhirDateTime, INullableValue<int>>(
                 parameterElementsAbstractFactory.CreatecParameterElementFactory(),
                 this.i);
 
@@ -184,7 +185,7 @@
                 dayBedCapacitiesVisitor.RedBlackTree);
 
             // h(s, k)
-            ISurgeonStateProbabilitiesOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<decimal>>> surgeonStateProbabilitiesOuterVisitor = new Belien2007.A.E.O.Visitors.Contexts.SurgeonStateProbabilitiesOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<decimal>>>(
+            ISurgeonStateProbabilitiesOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<decimal>>> surgeonStateProbabilitiesOuterVisitor = new Belien2007.A.E.O.Visitors.Contexts.SMIP2.SurgeonStateProbabilitiesOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<decimal>>>(
                 parameterElementsAbstractFactory.CreatehParameterElementFactory(),
                 this.k,
                 this.s);
@@ -196,7 +197,7 @@
                 surgeonStateProbabilitiesOuterVisitor.RedBlackTree);
 
             // m(s)
-            ISurgeonLengthOfStayMaximumsVisitor<Organization, INullableValue<int>> surgeonLengthOfStayMaximumsVisitor = new Belien2007.A.E.O.Visitors.Contexts.SurgeonLengthOfStayMaximumsVisitor<Organization, INullableValue<int>>(
+            ISurgeonLengthOfStayMaximumsVisitor<Organization, INullableValue<int>> surgeonLengthOfStayMaximumsVisitor = new Belien2007.A.E.O.Visitors.Contexts.Common.SurgeonLengthOfStayMaximumsVisitor<Organization, INullableValue<int>>(
                 parameterElementsAbstractFactory.CreatemParameterElementFactory(),
                 this.s);
 
@@ -207,7 +208,7 @@
                 surgeonLengthOfStayMaximumsVisitor.RedBlackTree);
 
             // n(s, k)
-            ISurgeonStateMaximumNumberPatientsOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>> surgeonStateMaximumNumberPatientsOuterVisitor = new Belien2007.A.E.O.Visitors.Contexts.SurgeonStateMaximumNumberPatientsOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>>(
+            ISurgeonStateMaximumNumberPatientsOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>> surgeonStateMaximumNumberPatientsOuterVisitor = new Belien2007.A.E.O.Visitors.Contexts.SMIP2.SurgeonStateMaximumNumberPatientsOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>>(
                 parameterElementsAbstractFactory.CreateStochasticnParameterElementFactory(),
                 this.k,
                 this.s);
@@ -219,7 +220,7 @@
                 surgeonStateMaximumNumberPatientsOuterVisitor.RedBlackTree);
 
             // p(s, d)
-            ISurgeonDayLengthOfStayProbabilitiesOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<decimal>>> surgeonDayLengthOfStayProbabilitiesOuterVisitor = new Belien2007.A.E.O.Visitors.Contexts.SurgeonDayLengthOfStayProbabilitiesOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<decimal>>>(
+            ISurgeonDayLengthOfStayProbabilitiesOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<decimal>>> surgeonDayLengthOfStayProbabilitiesOuterVisitor = new Belien2007.A.E.O.Visitors.Contexts.Common.SurgeonDayLengthOfStayProbabilitiesOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<decimal>>>(
                 parameterElementsAbstractFactory.CreatepParameterElementFactory(),
                 this.d,
                 this.s);
@@ -231,7 +232,7 @@
                 surgeonDayLengthOfStayProbabilitiesOuterVisitor.RedBlackTree);
 
             // q(s)
-            ISurgeonNumberStatesVisitor<Organization, INullableValue<int>> surgeonNumberStatesVisitor = new Belien2007.A.E.O.Visitors.Contexts.SurgeonNumberStatesVisitor<Organization, INullableValue<int>>(
+            ISurgeonNumberStatesVisitor<Organization, INullableValue<int>> surgeonNumberStatesVisitor = new Belien2007.A.E.O.Visitors.Contexts.SMIP2.SurgeonNumberStatesVisitor<Organization, INullableValue<int>>(
                 parameterElementsAbstractFactory.CreateqParameterElementFactory(),
                 this.s);
 
@@ -242,7 +243,7 @@
                 surgeonNumberStatesVisitor.RedBlackTree);
 
             // r(s)
-            ISurgeonNumberTimeBlocksVisitor<Organization, INullableValue<int>> surgeonNumberTimeBlocksVisitor = new Belien2007.A.E.O.Visitors.Contexts.SurgeonNumberTimeBlocksVisitor<Organization, INullableValue<int>>(
+            ISurgeonNumberTimeBlocksVisitor<Organization, INullableValue<int>> surgeonNumberTimeBlocksVisitor = new Belien2007.A.E.O.Visitors.Contexts.Common.SurgeonNumberTimeBlocksVisitor<Organization, INullableValue<int>>(
                 parameterElementsAbstractFactory.CreaterParameterElementFactory(),
                 this.s);
 

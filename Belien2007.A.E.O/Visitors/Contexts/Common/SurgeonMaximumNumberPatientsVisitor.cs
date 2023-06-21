@@ -1,4 +1,4 @@
-﻿namespace Belien2007.A.E.O.Visitors.Contexts
+﻿namespace Belien2007.A.E.O.Visitors.Contexts.Common
 {
     using System.Collections.Generic;
 
@@ -10,34 +10,32 @@
 
     using Belien2007.A.E.O.Interfaces.IndexElements.Common;
     using Belien2007.A.E.O.Interfaces.Indices.Common;
-    using Belien2007.A.E.O.Interfaces.ParameterElements.Common.SurgeonNumberTimeBlocks;
-    using Belien2007.A.E.O.InterfacesFactories.ParameterElements.Common.SurgeonNumberTimeBlocks;
-    using Belien2007.A.E.O.InterfacesVisitors.Contexts;
+    using Belien2007.A.E.O.Interfaces.ParameterElements.Common.SurgeonMaximumNumberPatients;
+    using Belien2007.A.E.O.InterfacesFactories.ParameterElements.Common.SurgeonMaximumNumberPatients;
+    using Belien2007.A.E.O.InterfacesVisitors.Contexts.Common;
 
-    internal sealed class SurgeonNumberTimeBlocksVisitor<TKey, TValue> : ISurgeonNumberTimeBlocksVisitor<TKey, TValue>
+    internal sealed class SurgeonMaximumNumberPatientsVisitor<TKey, TValue> : ISurgeonMaximumNumberPatientsVisitor<TKey, TValue>
         where TKey : Organization
         where TValue : INullableValue<int>
     {
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        public SurgeonNumberTimeBlocksVisitor(
-            IrParameterElementFactory rParameterElementFactory,
+        public SurgeonMaximumNumberPatientsVisitor(
+            ICommonnParameterElementFactory commonnParameterElementFactory,
             Is s)
         {
-            this.rParameterElementFactory = rParameterElementFactory;
+            this.commonnParameterElementFactory = commonnParameterElementFactory;
 
             this.s = s;
-
-            this.RedBlackTree = new RedBlackTree<IsIndexElement, IrParameterElement>();
         }
 
-        private IrParameterElementFactory rParameterElementFactory { get; }
+        private ICommonnParameterElementFactory commonnParameterElementFactory { get; }
 
         private Is s { get; }
 
         public bool HasCompleted => false;
 
-        public RedBlackTree<IsIndexElement, IrParameterElement> RedBlackTree { get; }
+        public RedBlackTree<IsIndexElement, ICommonnParameterElement> RedBlackTree { get; }
 
         public void Visit(
             KeyValuePair<TKey, TValue> obj)
@@ -47,7 +45,7 @@
 
             this.RedBlackTree.Add(
                 sIndexElement,
-                this.rParameterElementFactory.Create(
+                this.commonnParameterElementFactory.Create(
                     sIndexElement,
                     obj.Value));
         }

@@ -1,4 +1,4 @@
-﻿namespace Belien2007.A.E.O.Visitors.Contexts
+﻿namespace Belien2007.A.E.O.Visitors.Contexts.Common
 {
     using System.Collections.Generic;
 
@@ -12,7 +12,7 @@
     using Belien2007.A.E.O.Interfaces.Indices.Common;
     using Belien2007.A.E.O.Interfaces.ParameterElements.Common.SurgeonLengthOfStayMaximums;
     using Belien2007.A.E.O.InterfacesFactories.ParameterElements.Common.SurgeonLengthOfStayMaximums;
-    using Belien2007.A.E.O.InterfacesVisitors.Contexts;
+    using Belien2007.A.E.O.InterfacesVisitors.Contexts.Common;
 
     internal sealed class SurgeonLengthOfStayMaximumsVisitor<TKey, TValue> : ISurgeonLengthOfStayMaximumsVisitor<TKey, TValue>
         where TKey : Organization

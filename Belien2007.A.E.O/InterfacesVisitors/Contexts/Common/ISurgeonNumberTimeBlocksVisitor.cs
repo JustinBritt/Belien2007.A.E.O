@@ -1,4 +1,4 @@
-﻿namespace Belien2007.A.E.O.InterfacesVisitors.Contexts
+﻿namespace Belien2007.A.E.O.InterfacesVisitors.Contexts.Common
 {
     using System.Collections.Generic;
 
