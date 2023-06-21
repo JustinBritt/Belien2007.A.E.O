@@ -16,7 +16,7 @@
 
         Bundle Surgeons { get; }
 
-        ImmutableList<KeyValuePair<FhirDateTime, INullableValue<bool>>> ActivePeriods { get; }
+        RedBlackTree<FhirDateTime, INullableValue<bool>> ActivePeriods { get; }
 
         RedBlackTree<FhirDateTime, INullableValue<int>> DayNumberTimeBlocks { get; }
 

@@ -1,7 +1,6 @@
 ﻿namespace Belien2007.A.E.O.Factories.Contexts.MIP2
 {
     using System;
-    using System.Collections.Generic;
     using System.Collections.Immutable;
 
     using log4net;
@@ -26,7 +25,7 @@
             ImmutableSortedSet<INullableValue<int>> lengthOfStayDays,
             RedBlackTree<INullableValue<int>, FhirDateTime> planningHorizon,
             Bundle surgeons,
-            ImmutableList<KeyValuePair<FhirDateTime, INullableValue<bool>>> activePeriods,
+            RedBlackTree<FhirDateTime, INullableValue<bool>> activePeriods,
             RedBlackTree<FhirDateTime, INullableValue<int>> dayNumberTimeBlocks,
             RedBlackTree<FhirDateTime, INullableValue<int>> dayBedCapacities,
             RedBlackTree<Organization, INullableValue<int>> surgeonLengthOfStayMaximums,

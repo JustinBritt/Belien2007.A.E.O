@@ -1,7 +1,5 @@
 ﻿namespace Belien2007.A.E.O.Classes.Contexts.QMIP
 {
-    using System;
-    using System.Collections.Generic;
     using System.Collections.Immutable;
 
     using log4net;
@@ -20,7 +18,7 @@
             ImmutableSortedSet<INullableValue<int>> lengthOfStayDays,
             RedBlackTree<INullableValue<int>, FhirDateTime> planningHorizon,
             Bundle surgeons,
-            ImmutableList<KeyValuePair<FhirDateTime, INullableValue<bool>>> activePeriods,
+            RedBlackTree<FhirDateTime, INullableValue<bool>> activePeriods,
             RedBlackTree<FhirDateTime, INullableValue<int>> dayNumberTimeBlocks,
             RedBlackTree<FhirDateTime, INullableValue<int>> dayBedCapacities,
             RedBlackTree<Organization, INullableValue<int>> surgeonLengthOfStayMaximums,
@@ -55,7 +53,7 @@
 
         public Bundle Surgeons { get; }
 
-        public ImmutableList<KeyValuePair<FhirDateTime, INullableValue<bool>>> ActivePeriods { get; }
+        public RedBlackTree<FhirDateTime, INullableValue<bool>> ActivePeriods { get; }
 
         public RedBlackTree<FhirDateTime, INullableValue<int>> DayNumberTimeBlocks { get; }
 
