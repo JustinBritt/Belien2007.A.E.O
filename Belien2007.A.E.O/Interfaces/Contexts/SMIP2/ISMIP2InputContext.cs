@@ -24,7 +24,7 @@
 
         RedBlackTree<FhirDateTime, INullableValue<int>> DayBedCapacities { get; }
 
-        ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<decimal>>> SurgeonStateProbabilities { get; }
+        RedBlackTree<Organization, RedBlackTree<INullableValue<int>, INullableValue<decimal>>> SurgeonStateProbabilities { get; }
 
         RedBlackTree<Organization, INullableValue<int>> SurgeonLengthOfStayMaximums { get; }
 

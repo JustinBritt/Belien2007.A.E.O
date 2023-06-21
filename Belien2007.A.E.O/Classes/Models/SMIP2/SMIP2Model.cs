@@ -184,13 +184,16 @@
                 dayBedCapacitiesVisitor.RedBlackTree);
 
             // h(s, k)
+            ISurgeonStateProbabilitiesOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<decimal>>> surgeonStateProbabilitiesOuterVisitor = new Belien2007.A.E.O.Visitors.Contexts.SurgeonStateProbabilitiesOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<decimal>>>(
+                parameterElementsAbstractFactory.CreatehParameterElementFactory(),
+                this.k,
+                this.s);
+
+            this.Context.SurgeonStateProbabilities.AcceptVisitor(
+                surgeonStateProbabilitiesOuterVisitor);
+
             this.h = parametersAbstractFactory.CreatehFactory().Create(
-                this.Context.SurgeonStateProbabilities
-                .Select(x => parameterElementsAbstractFactory.CreatehParameterElementFactory().Create(
-                    this.s.GetElementAt(x.Item1),
-                    this.k.GetElementAt(x.Item2),
-                    x.Item3))
-                .ToImmutableList());
+                surgeonStateProbabilitiesOuterVisitor.RedBlackTree);
 
             // m(s)
             ISurgeonLengthOfStayMaximumsVisitor<Organization, INullableValue<int>> surgeonLengthOfStayMaximumsVisitor = new Belien2007.A.E.O.Visitors.Contexts.SurgeonLengthOfStayMaximumsVisitor<Organization, INullableValue<int>>(

@@ -1,11 +1,14 @@
 ﻿namespace Belien2007.A.E.O.Factories.Parameters.Stochastic.SurgeonStateProbabilities
 {
     using System;
-    using System.Collections.Immutable;
 
     using log4net;
 
+    using NGenerics.DataStructures.Trees;
+
     using Belien2007.A.E.O.Classes.Parameters.Stochastic.SurgeonStateProbabilities;
+    using Belien2007.A.E.O.Interfaces.IndexElements.Common;
+    using Belien2007.A.E.O.Interfaces.IndexElements.Stochastic;
     using Belien2007.A.E.O.Interfaces.ParameterElements.Stochastic.SurgeonStateProbabilities;
     using Belien2007.A.E.O.Interfaces.Parameters.Stochastic.SurgeonStateProbabilities;
     using Belien2007.A.E.O.InterfacesFactories.Parameters.Stochastic.SurgeonStateProbabilities;
@@ -19,7 +22,7 @@
         }
 
         public Ih Create(
-            ImmutableList<IhParameterElement> value)
+            RedBlackTree<IsIndexElement, RedBlackTree<IkIndexElement, IhParameterElement>> value)
         {
             Ih parameter = null;
 

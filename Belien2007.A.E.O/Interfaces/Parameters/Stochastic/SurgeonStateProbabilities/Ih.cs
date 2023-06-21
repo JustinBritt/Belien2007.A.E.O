@@ -1,6 +1,6 @@
 ﻿namespace Belien2007.A.E.O.Interfaces.Parameters.Stochastic.SurgeonStateProbabilities
 {
-    using System.Collections.Immutable;
+    using NGenerics.DataStructures.Trees;
 
     using Belien2007.A.E.O.Interfaces.IndexElements.Common;
     using Belien2007.A.E.O.Interfaces.IndexElements.Stochastic;
@@ -8,7 +8,7 @@
 
     public interface Ih
     {
-        ImmutableList<IhParameterElement> Value { get; }
+        RedBlackTree<IsIndexElement, RedBlackTree<IkIndexElement, IhParameterElement>> Value { get; }
 
         decimal GetElementAtAsdecimal(
             IsIndexElement sIndexElement,

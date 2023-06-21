@@ -1,9 +1,8 @@
 ﻿namespace Belien2007.A.E.O.Classes.Parameters.Stochastic.SurgeonStateProbabilities
 {
-    using System.Collections.Immutable;
-    using System.Linq;
-
     using log4net;
+
+    using NGenerics.DataStructures.Trees;
 
     using Belien2007.A.E.O.Interfaces.IndexElements.Common;
     using Belien2007.A.E.O.Interfaces.IndexElements.Stochastic;
@@ -15,21 +14,18 @@
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public h(
-            ImmutableList<IhParameterElement> value)
+            RedBlackTree<IsIndexElement, RedBlackTree<IkIndexElement, IhParameterElement>> value)
         {
             this.Value = value;
         }
 
-        public ImmutableList<IhParameterElement> Value { get; }
+        public RedBlackTree<IsIndexElement, RedBlackTree<IkIndexElement, IhParameterElement>> Value { get; }
 
         public decimal GetElementAtAsdecimal(
             IsIndexElement sIndexElement,
             IkIndexElement kIndexElement)
         {
-            return this.Value
-                .Where(x => x.sIndexElement == sIndexElement && x.kIndexElement == kIndexElement)
-                .Select(x => x.Value.Value.Value)
-                .SingleOrDefault();
+            return this.Value[sIndexElement][kIndexElement].Value.Value.Value;
         }
     }
 }
