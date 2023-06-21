@@ -14,7 +14,7 @@
 
         ImmutableList<KeyValuePair<INullableValue<int>, FhirDateTime>> PlanningHorizon { get; }
 
-        ImmutableList<INullableValue<int>> States { get; }
+        ImmutableSortedSet<INullableValue<int>> States { get; }
 
         Bundle Surgeons { get; }
 

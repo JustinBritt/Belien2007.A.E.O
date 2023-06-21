@@ -19,7 +19,7 @@
         public SMIP2InputContext(
             ImmutableSortedSet<INullableValue<int>> lengthOfStayDays,
             ImmutableList<KeyValuePair<INullableValue<int>, FhirDateTime>> planningHorizon,
-            ImmutableList<INullableValue<int>> states,
+            ImmutableSortedSet<INullableValue<int>> states,
             Bundle surgeons,
             ImmutableList<KeyValuePair<FhirDateTime, INullableValue<bool>>> activePeriods,
             RedBlackTree<FhirDateTime, INullableValue<int>> dayNumberTimeBlocks,
@@ -68,7 +68,7 @@
 
         public ImmutableList<KeyValuePair<INullableValue<int>, FhirDateTime>> PlanningHorizon { get; }
 
-        public ImmutableList<INullableValue<int>> States { get; }
+        public ImmutableSortedSet<INullableValue<int>> States { get; }
 
         public Bundle Surgeons { get; }
 

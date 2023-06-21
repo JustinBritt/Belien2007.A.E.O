@@ -14,7 +14,7 @@
         ISMIP2InputContext Create(
             ImmutableSortedSet<INullableValue<int>> lengthOfStayDays,
             ImmutableList<KeyValuePair<INullableValue<int>, FhirDateTime>> planningHorizon,
-            ImmutableList<INullableValue<int>> states,
+            ImmutableSortedSet<INullableValue<int>> states,
             Bundle surgeons,
             ImmutableList<KeyValuePair<FhirDateTime, INullableValue<bool>>> activePeriods,
             RedBlackTree<FhirDateTime, INullableValue<int>> dayNumberTimeBlocks,
