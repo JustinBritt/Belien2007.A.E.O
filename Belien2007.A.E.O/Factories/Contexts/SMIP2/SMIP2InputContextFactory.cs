@@ -29,7 +29,7 @@
             Bundle surgeons,
             ImmutableList<KeyValuePair<FhirDateTime, INullableValue<bool>>> activePeriods,
             RedBlackTree<FhirDateTime, INullableValue<int>> dayNumberTimeBlocks,
-            ImmutableList<KeyValuePair<FhirDateTime, INullableValue<int>>> dayBedCapacities,
+            RedBlackTree<FhirDateTime, INullableValue<int>> dayBedCapacities,
             ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<decimal>>> surgeonStateProbabilities,
             ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonLengthOfStayMaximums,
             ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<int>>> surgeonStateMaximumNumberPatients,

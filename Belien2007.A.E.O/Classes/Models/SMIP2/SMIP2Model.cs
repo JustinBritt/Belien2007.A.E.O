@@ -170,12 +170,15 @@
                 dayNumberTimeBlocksVisitor.RedBlackTree);
 
             // c(i)
+            IDayBedCapacitiesVisitor<FhirDateTime, INullableValue<int>> dayBedCapacitiesVisitor = new Belien2007.A.E.O.Visitors.Contexts.DayBedCapacitiesVisitor<FhirDateTime, INullableValue<int>>(
+                parameterElementsAbstractFactory.CreatecParameterElementFactory(),
+                this.i);
+
+            this.Context.DayBedCapacities.AcceptVisitor(
+                dayBedCapacitiesVisitor);
+
             this.c = parametersAbstractFactory.CreatecFactory().Create(
-                this.Context.DayBedCapacities
-                .Select(x => parameterElementsAbstractFactory.CreatecParameterElementFactory().Create(
-                    this.i.GetElementAt(x.Key),
-                    x.Value))
-                .ToImmutableList());
+                dayBedCapacitiesVisitor.RedBlackTree);
 
             // h(s, k)
             this.h = parametersAbstractFactory.CreatehFactory().Create(

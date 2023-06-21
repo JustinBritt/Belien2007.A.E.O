@@ -22,7 +22,7 @@
 
         RedBlackTree<FhirDateTime, INullableValue<int>> DayNumberTimeBlocks { get; }
 
-        ImmutableList<KeyValuePair<FhirDateTime, INullableValue<int>>> DayBedCapacities { get; }
+        RedBlackTree<FhirDateTime, INullableValue<int>> DayBedCapacities { get; }
 
         ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<decimal>>> SurgeonStateProbabilities { get; }
 
