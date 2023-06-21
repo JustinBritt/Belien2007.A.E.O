@@ -1,6 +1,5 @@
 ﻿namespace Belien2007.A.E.O.Classes.Contexts.SMIP2
 {
-    using System;
     using System.Collections.Immutable;
 
     using log4net;
@@ -25,7 +24,7 @@
             RedBlackTree<FhirDateTime, INullableValue<int>> dayBedCapacities,
             RedBlackTree<Organization, RedBlackTree<INullableValue<int>, INullableValue<decimal>>> surgeonStateProbabilities,
             RedBlackTree<Organization, INullableValue<int>> surgeonLengthOfStayMaximums,
-            ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<int>>> surgeonStateMaximumNumberPatients,
+            RedBlackTree<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>> surgeonStateMaximumNumberPatients,
             RedBlackTree<Organization, RedBlackTree<INullableValue<int>, INullableValue<decimal>>> surgeonDayLengthOfStayProbabilities,
             RedBlackTree<Organization, INullableValue<int>> surgeonNumberStates,
             RedBlackTree<Organization, INullableValue<int>> surgeonNumberTimeBlocks,
@@ -81,7 +80,7 @@
 
         public RedBlackTree<Organization, INullableValue<int>> SurgeonLengthOfStayMaximums { get; }
 
-        public ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<int>>> SurgeonStateMaximumNumberPatients { get; }
+        public RedBlackTree<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>> SurgeonStateMaximumNumberPatients { get; }
 
         public RedBlackTree<Organization, RedBlackTree<INullableValue<int>, INullableValue<decimal>>> SurgeonDayLengthOfStayProbabilities { get; }
 

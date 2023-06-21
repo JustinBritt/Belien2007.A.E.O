@@ -28,7 +28,7 @@
 
         RedBlackTree<Organization, INullableValue<int>> SurgeonLengthOfStayMaximums { get; }
 
-        ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<int>>> SurgeonStateMaximumNumberPatients { get; }
+        RedBlackTree<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>> SurgeonStateMaximumNumberPatients { get; }
 
         RedBlackTree<Organization, RedBlackTree<INullableValue<int>, INullableValue<decimal>>> SurgeonDayLengthOfStayProbabilities { get; }
 

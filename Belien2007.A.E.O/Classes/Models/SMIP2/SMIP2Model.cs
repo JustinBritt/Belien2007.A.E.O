@@ -207,13 +207,16 @@
                 surgeonLengthOfStayMaximumsVisitor.RedBlackTree);
 
             // n(s, k)
+            ISurgeonStateMaximumNumberPatientsOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>> surgeonStateMaximumNumberPatientsOuterVisitor = new Belien2007.A.E.O.Visitors.Contexts.SurgeonStateMaximumNumberPatientsOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>>(
+                parameterElementsAbstractFactory.CreateStochasticnParameterElementFactory(),
+                this.k,
+                this.s);
+
+            this.Context.SurgeonStateMaximumNumberPatients.AcceptVisitor(
+                surgeonStateMaximumNumberPatientsOuterVisitor);
+
             this.n = parametersAbstractFactory.CreateStochasticnFactory().Create(
-                this.Context.SurgeonStateMaximumNumberPatients
-                .Select(x => parameterElementsAbstractFactory.CreateStochasticnParameterElementFactory().Create(
-                    this.s.GetElementAt(x.Item1),
-                    this.k.GetElementAt(x.Item2),
-                    x.Item3))
-                .ToImmutableList());
+                surgeonStateMaximumNumberPatientsOuterVisitor.RedBlackTree);
 
             // p(s, d)
             ISurgeonDayLengthOfStayProbabilitiesOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<decimal>>> surgeonDayLengthOfStayProbabilitiesOuterVisitor = new Belien2007.A.E.O.Visitors.Contexts.SurgeonDayLengthOfStayProbabilitiesOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<decimal>>>(
