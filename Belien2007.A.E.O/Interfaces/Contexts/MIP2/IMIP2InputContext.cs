@@ -18,7 +18,7 @@
 
         ImmutableList<KeyValuePair<FhirDateTime, INullableValue<bool>>> ActivePeriods { get; }
 
-        ImmutableList<KeyValuePair<FhirDateTime, INullableValue<int>>> DayNumberTimeBlocks { get; }
+        RedBlackTree<FhirDateTime, INullableValue<int>> DayNumberTimeBlocks { get; }
 
         ImmutableList<KeyValuePair<FhirDateTime, INullableValue<int>>> DayBedCapacities { get; }
 

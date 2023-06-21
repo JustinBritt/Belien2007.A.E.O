@@ -17,7 +17,7 @@
             ImmutableList<KeyValuePair<INullableValue<int>, FhirDateTime>> planningHorizon,
             Bundle surgeons,
             ImmutableList<KeyValuePair<FhirDateTime, INullableValue<bool>>> activePeriods,
-            ImmutableList<KeyValuePair<FhirDateTime, INullableValue<int>>> dayNumberTimeBlocks,
+            RedBlackTree<FhirDateTime, INullableValue<int>> dayNumberTimeBlocks,
             ImmutableList<KeyValuePair<FhirDateTime, INullableValue<int>>> dayBedCapacities,
             ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonLengthOfStayMaximums,
             RedBlackTree<Organization, INullableValue<int>> surgeonMaximumNumberPatients,

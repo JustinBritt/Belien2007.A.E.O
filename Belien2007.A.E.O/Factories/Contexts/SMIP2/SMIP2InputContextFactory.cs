@@ -8,6 +8,8 @@
 
     using Hl7.Fhir.Model;
 
+    using NGenerics.DataStructures.Trees;
+
     using Belien2007.A.E.O.Classes.Contexts.SMIP2;
     using Belien2007.A.E.O.Interfaces.Contexts.SMIP2;
     using Belien2007.A.E.O.InterfacesFactories.Contexts.SMIP2;
@@ -26,7 +28,7 @@
             ImmutableList<INullableValue<int>> states,
             Bundle surgeons,
             ImmutableList<KeyValuePair<FhirDateTime, INullableValue<bool>>> activePeriods,
-            ImmutableList<KeyValuePair<FhirDateTime, INullableValue<int>>> dayNumberTimeBlocks,
+            RedBlackTree<FhirDateTime, INullableValue<int>> dayNumberTimeBlocks,
             ImmutableList<KeyValuePair<FhirDateTime, INullableValue<int>>> dayBedCapacities,
             ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<decimal>>> surgeonStateProbabilities,
             ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonLengthOfStayMaximums,
