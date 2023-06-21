@@ -34,7 +34,7 @@
 
         ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgeonNumberStates { get; }
 
-        ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgeonNumberTimeBlocks { get; }
+        RedBlackTree<Organization, INullableValue<int>> SurgeonNumberTimeBlocks { get; }
 
         INullableValue<decimal> MeanWeight { get; }
 

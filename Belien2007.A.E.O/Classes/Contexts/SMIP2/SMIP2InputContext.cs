@@ -29,7 +29,7 @@
             ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<int>>> surgeonStateMaximumNumberPatients,
             RedBlackTree<Organization, RedBlackTree<INullableValue<int>, INullableValue<decimal>>> surgeonDayLengthOfStayProbabilities,
             ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonNumberStates,
-            ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonNumberTimeBlocks,
+            RedBlackTree<Organization, INullableValue<int>> surgeonNumberTimeBlocks,
             INullableValue<decimal> meanWeight,
             INullableValue<decimal> varianceWeight)
         {
@@ -88,7 +88,7 @@
 
         public ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgeonNumberStates { get; }
 
-        public ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgeonNumberTimeBlocks { get; }
+        public RedBlackTree<Organization, INullableValue<int>> SurgeonNumberTimeBlocks { get; }
 
         public INullableValue<decimal> MeanWeight { get; }
 
