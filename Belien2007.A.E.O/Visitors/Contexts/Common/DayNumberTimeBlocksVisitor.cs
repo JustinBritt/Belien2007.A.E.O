@@ -27,6 +27,8 @@
             this.bParameterElementFactory = bParameterElementFactory;
 
             this.i = i;
+
+            this.RedBlackTree = new RedBlackTree<IiIndexElement, IbParameterElement>();
         }
 
         private IbParameterElementFactory bParameterElementFactory { get; }
