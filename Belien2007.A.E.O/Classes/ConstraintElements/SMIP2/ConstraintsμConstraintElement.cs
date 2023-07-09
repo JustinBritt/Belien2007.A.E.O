@@ -1,7 +1,6 @@
 ﻿namespace Belien2007.A.E.O.Classes.ConstraintElements.SMIP2
 {
     using System;
-    using System.Collections.Immutable;
     using System.Linq;
 
     using log4net;
