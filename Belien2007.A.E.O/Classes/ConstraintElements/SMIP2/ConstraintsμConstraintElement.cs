@@ -45,8 +45,6 @@
         {
             Expression LHS = μ.Value[iIndexElement];
 
-            ImmutableList<Tuple<IsIndexElement, IjIndexElement, double>>.Builder builder = ImmutableList.CreateBuilder<Tuple<IsIndexElement, IjIndexElement, double>>();
-
             RedBlackTree<IsIndexElement, RedBlackTree<IjIndexElement, double>> outerRedBlackTree = new RedBlackTree<IsIndexElement, RedBlackTree<IjIndexElement, double>>();
 
             foreach (IsIndexElement sIndexElement in s.Value.Values)
