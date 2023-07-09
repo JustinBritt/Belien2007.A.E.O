@@ -6,6 +6,8 @@
 
     using log4net;
 
+    using NGenerics.DataStructures.Trees;
+
     using OPTANO.Modeling.Optimization;
 
     using Belien2007.A.E.O.Interfaces.ConstraintElements.SMIP2;
@@ -45,8 +47,12 @@
 
             ImmutableList<Tuple<IsIndexElement, IjIndexElement, double>>.Builder builder = ImmutableList.CreateBuilder<Tuple<IsIndexElement, IjIndexElement, double>>();
 
+            RedBlackTree<IsIndexElement, RedBlackTree<IjIndexElement, double>> outerRedBlackTree = new RedBlackTree<IsIndexElement, RedBlackTree<IjIndexElement, double>>();
+
             foreach (IsIndexElement sIndexElement in s.Value.Values)
             {
+                RedBlackTree<IjIndexElement, double> innerRedBlackTree = new RedBlackTree<IjIndexElement, double>();
+
                 foreach (IjIndexElement jIndexElement in j.Value.Values.Where(y => A.GetElementAtAsint(y) == 1))
                 {
                     int dLowerBound = m.GetElementAtAsint(sIndexElement) + 1;
@@ -89,22 +95,22 @@
                         }
                     }
 
-                    builder.Add(
-                        Tuple.Create(
-                            sIndexElement,
-                            jIndexElement,
-                            RHS_Sum));
+                    innerRedBlackTree.Add(
+                        jIndexElement,
+                        RHS_Sum);
                 }
-            }
 
-            ImmutableList<Tuple<IsIndexElement, IjIndexElement, double>> RHS_Sums = builder.ToImmutableList();
+                outerRedBlackTree.Add(
+                    sIndexElement,
+                    innerRedBlackTree);
+            }
 
             Expression RHS = Expression.Sum(
                 sj.Value
                 .Where(y => A.GetElementAtAsint(y.jIndexElement) == 1)
                 .Select(
                     y =>
-                    RHS_Sums.Where(w => w.Item1 == y.sIndexElement && w.Item2 == y.jIndexElement).Select(w => w.Item3).SingleOrDefault()
+                    outerRedBlackTree[y.sIndexElement][y.jIndexElement]
                     *
                     x.Value[
                         i.GetElementAt(
