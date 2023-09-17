@@ -31,6 +31,6 @@
 
         RedBlackTree<FhirDateTime, INullableValue<decimal>> DayBedOccupancyMeans { get; }
 
-        ImmutableList<Tuple<FhirDateTime, INullableValue<decimal>>> DayBedOccupancyVariances { get; }
+        RedBlackTree<FhirDateTime, INullableValue<decimal>> DayBedOccupancyVariances { get; }
     }
 }
