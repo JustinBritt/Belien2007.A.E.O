@@ -168,7 +168,7 @@
 
         public TimeSpan OverallWallTime { get; }
 
-        public ImmutableList<Tuple<INullableValue<int>, INullableValue<int>>> StateNumberPatients { get; }
+        public RedBlackTree<INullableValue<int>, INullableValue<int>> StateNumberPatients { get; }
 
         public ImmutableList<Tuple<Organization, INullableValue<int>>> SurgeonNumberAssignedDays { get; }
 

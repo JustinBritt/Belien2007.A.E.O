@@ -1,12 +1,12 @@
 ﻿namespace Belien2007.A.E.O.Classes.Results.Stochastic.StateNumberPatients
 {
-    using System;
     using System.Collections.Immutable;
-    using System.Linq;
 
     using log4net;
 
     using Hl7.Fhir.Model;
+
+    using NGenerics.DataStructures.Trees;
 
     using Belien2007.A.E.O.Interfaces.ResultElements.Stochastic.StateNumberPatients;
     using Belien2007.A.E.O.Interfaces.Results.Stochastic.StateNumberPatients;
@@ -24,16 +24,20 @@
 
         public ImmutableList<IStateNumberPatientsResultElement> Value { get; }
 
-        public ImmutableList<Tuple<INullableValue<int>, INullableValue<int>>> GetValueForOutputContext(
+        public RedBlackTree<INullableValue<int>, INullableValue<int>> GetValueForOutputContext(
             INullableValueFactory nullableValueFactory)
         {
-            return this.Value
-                .Select(
-                i => Tuple.Create(
-                    (INullableValue<int>)i.kIndexElement.Value,
+            RedBlackTree<INullableValue<int>, INullableValue<int>> redBlackTree = new RedBlackTree<INullableValue<int>, INullableValue<int>>();
+
+            foreach (IStateNumberPatientsResultElement stateNumberPatientsResultElement in this.Value)
+            {
+                redBlackTree.Add(
+                    stateNumberPatientsResultElement.kIndexElement.Value,
                     nullableValueFactory.Create<int>(
-                        i.Value)))
-                .ToImmutableList();
+                        stateNumberPatientsResultElement.Value));
+            }
+
+            return redBlackTree;
         }
     }
 }
