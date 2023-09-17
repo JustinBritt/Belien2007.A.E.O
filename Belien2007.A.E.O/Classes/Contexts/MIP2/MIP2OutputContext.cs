@@ -65,7 +65,9 @@
 
             this.DaySurgeonNumberBlockAssignments = x
                 .GetValueForOutputContext(
-                dependenciesAbstractFactory.CreateNullableValueFactory());
+                dependenciesAbstractFactory.CreateNullableValueFactory(),
+                MIP2Model.i,
+                MIP2Model.s);
 
             // γ
             this.BedOccupancyMaximalWeightedSum = resultsAbstractFactory.CreateγFactory().Create(

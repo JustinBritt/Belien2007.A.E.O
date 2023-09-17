@@ -65,7 +65,9 @@
 
             this.DaySurgeonNumberBlockAssignments = x
                 .GetValueForOutputContext(
-                dependenciesAbstractFactory.CreateNullableValueFactory());
+                dependenciesAbstractFactory.CreateNullableValueFactory(),
+                QMIPModel.i,
+                QMIPModel.s);
 
             // μ(i)
             Interfaces.Results.Common.DayBedOccupancyMeans.Iμ μ = QMIPModel.μ.GetElementsAt(
