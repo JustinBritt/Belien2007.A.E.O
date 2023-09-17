@@ -1,12 +1,13 @@
 ﻿namespace Belien2007.A.E.O.Classes.Results.Common.DayExpectedBedShortages
 {
-    using System;
     using System.Collections.Immutable;
     using System.Linq;
 
     using log4net;
 
     using Hl7.Fhir.Model;
+
+    using NGenerics.DataStructures.Trees;
 
     using Belien2007.A.E.O.Interfaces.IndexElements.Common;
     using Belien2007.A.E.O.Interfaces.ResultElements.Common.DayExpectedBedShortages;
@@ -34,16 +35,21 @@
                 .SingleOrDefault();
         }
 
-        public ImmutableList<Tuple<FhirDateTime, INullableValue<decimal>>> GetValueForOutputContext(
+        public RedBlackTree<FhirDateTime, INullableValue<decimal>> GetValueForOutputContext(
             INullableValueFactory nullableValueFactory)
         {
-            return this.Value
-                .Select(
-                i => Tuple.Create(
-                    i.iIndexElement.Value,
+            RedBlackTree<FhirDateTime, INullableValue<decimal>> redBlackTree = new RedBlackTree<FhirDateTime, INullableValue<decimal>>(
+                new Belien2007.A.E.O.Classes.Comparers.FhirDateTimeComparer());
+
+            foreach (IEBSResultElement EBSResultElement in this.Value)
+            {
+                redBlackTree.Add(
+                    EBSResultElement.iIndexElement.Value,
                     nullableValueFactory.Create<decimal>(
-                        i.Value)))
-                .ToImmutableList();
+                        EBSResultElement.Value));
+            }
+
+            return redBlackTree;
         }
     }
 }

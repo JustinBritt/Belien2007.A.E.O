@@ -8,6 +8,8 @@
 
     using Hl7.Fhir.Model;
 
+    using NGenerics.DataStructures.Trees;
+
     using OPTANO.Modeling.Optimization;
 
     using Belien2007.A.E.O.InterfacesAbstractFactories;
@@ -123,7 +125,7 @@
 
         public INullableValue<decimal> BestBound { get; }
 
-        public ImmutableList<Tuple<FhirDateTime, INullableValue<decimal>>> DayExpectedBedShortages { get; }
+        public RedBlackTree<FhirDateTime, INullableValue<decimal>> DayExpectedBedShortages { get; }
 
         public INullableValue<decimal> Gap { get; }
 

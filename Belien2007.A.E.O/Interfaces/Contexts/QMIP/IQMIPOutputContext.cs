@@ -5,11 +5,13 @@
 
     using Hl7.Fhir.Model;
 
+    using NGenerics.DataStructures.Trees;
+
     public interface IQMIPOutputContext
     {
         INullableValue<decimal> BestBound { get; }
 
-        ImmutableList<Tuple<FhirDateTime, INullableValue<decimal>>> DayExpectedBedShortages { get; }
+        RedBlackTree<FhirDateTime, INullableValue<decimal>> DayExpectedBedShortages { get; }
 
         INullableValue<decimal> Gap { get; }
 
