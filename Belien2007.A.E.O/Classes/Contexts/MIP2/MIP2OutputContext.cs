@@ -1,7 +1,6 @@
 ﻿namespace Belien2007.A.E.O.Classes.Contexts.MIP2
 {
     using System;
-    using System.Collections.Immutable;
     using System.Linq;
 
     using log4net;
@@ -147,7 +146,7 @@
 
         public INullableValue<decimal> TotalExpectedBedShortage { get; }
 
-        public ImmutableList<Tuple<FhirDateTime, Organization, INullableValue<int>>> DaySurgeonNumberBlockAssignments { get; }
+        public RedBlackTree<FhirDateTime, RedBlackTree<Organization, INullableValue<int>>> DaySurgeonNumberBlockAssignments { get; }
 
         public INullableValue<decimal> BedOccupancyMaximalWeightedSum { get; }
 

@@ -1,9 +1,10 @@
 ﻿namespace Belien2007.A.E.O.Interfaces.Results.Common.DaySurgeonNumberBlockAssignments
 {
-    using System;
     using System.Collections.Immutable;
 
     using Hl7.Fhir.Model;
+
+    using NGenerics.DataStructures.Trees;
 
     using Belien2007.A.E.O.Interfaces.IndexElements.Common;
     using Belien2007.A.E.O.Interfaces.Indices.Common;
@@ -18,7 +19,7 @@
             IiIndexElement iIndexElement,
             IsIndexElement sIndexElement);
 
-        ImmutableList<Tuple<FhirDateTime, Organization, INullableValue<int>>> GetValueForOutputContext(
+        RedBlackTree<FhirDateTime, RedBlackTree<Organization, INullableValue<int>>> GetValueForOutputContext(
             INullableValueFactory nullableValueFactory,
             Ii i,
             Is s);

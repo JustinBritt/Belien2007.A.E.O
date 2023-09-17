@@ -1,12 +1,13 @@
 ﻿namespace Belien2007.A.E.O.Classes.Results.Common.DaySurgeonNumberBlockAssignments
 {
-    using System;
     using System.Collections.Immutable;
     using System.Linq;
 
     using log4net;
 
     using Hl7.Fhir.Model;
+
+    using NGenerics.DataStructures.Trees;
 
     using Belien2007.A.E.O.Interfaces.IndexElements.Common;
     using Belien2007.A.E.O.Interfaces.Indices.Common;
@@ -36,19 +37,29 @@
                 .SingleOrDefault();
         }
 
-        public ImmutableList<Tuple<FhirDateTime, Organization, INullableValue<int>>> GetValueForOutputContext(
+        public RedBlackTree<FhirDateTime, RedBlackTree<Organization, INullableValue<int>>> GetValueForOutputContext(
             INullableValueFactory nullableValueFactory,
             Ii i,
             Is s)
         {
-            return this.Value
-                .Select(
-                i => Tuple.Create(
-                    i.iIndexElement.Value,
-                    i.sIndexElement.Value,
-                    nullableValueFactory.Create<int>(
-                        i.Value)))
-                .ToImmutableList();
+            RedBlackTree<FhirDateTime, RedBlackTree<Organization, INullableValue<int>>> outerRedBlackTree = new RedBlackTree<FhirDateTime, RedBlackTree<Organization, INullableValue<int>>>();
+
+            foreach (IiIndexElement iIndexElement in i.Value.Values)
+            {
+                RedBlackTree<Organization, INullableValue<int>> innerRedBlackTree = new RedBlackTree<Organization, INullableValue<int>>();
+
+                foreach (IsIndexElement sIndexElement in s.Value.Values)
+                {
+                    innerRedBlackTree.Add(
+                        sIndexElement.Value,
+                        nullableValueFactory.Create<int>(
+                            this.GetElementAtAsint(
+                                iIndexElement,
+                                sIndexElement)));
+                }
+            }
+
+            return outerRedBlackTree;
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿namespace Belien2007.A.E.O.Interfaces.Contexts.MIP2
 {
     using System;
-    using System.Collections.Immutable;
 
     using Hl7.Fhir.Model;
 
@@ -25,7 +24,7 @@
 
         INullableValue<decimal> TotalExpectedBedShortage { get; }
 
-        ImmutableList<Tuple<FhirDateTime, Organization, INullableValue<int>>> DaySurgeonNumberBlockAssignments { get; }
+        RedBlackTree<FhirDateTime, RedBlackTree<Organization, INullableValue<int>>> DaySurgeonNumberBlockAssignments { get; }
 
         INullableValue<decimal> BedOccupancyMaximalWeightedSum { get; }
 

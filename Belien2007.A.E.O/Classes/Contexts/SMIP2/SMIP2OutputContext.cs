@@ -178,7 +178,7 @@
 
         public INullableValue<decimal> TotalExpectedBedShortage { get; }
 
-        public ImmutableList<Tuple<FhirDateTime, Organization, INullableValue<int>>> DaySurgeonNumberBlockAssignments { get; }
+        public RedBlackTree<FhirDateTime, RedBlackTree<Organization, INullableValue<int>>> DaySurgeonNumberBlockAssignments { get; }
 
         public INullableValue<decimal> BedOccupancyMaximalWeightedSum { get; }
 
