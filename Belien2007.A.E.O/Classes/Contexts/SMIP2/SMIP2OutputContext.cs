@@ -176,7 +176,7 @@
 
         public RedBlackTree<Organization, INullableValue<int>> SurgeonNumberAssignedDays { get; }
 
-        public ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<int>>> SurgeonStateNumberPatients { get; }
+        public RedBlackTree<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>> SurgeonStateNumberPatients { get; }
 
         public INullableValue<decimal> TotalExpectedBedShortage { get; }
 

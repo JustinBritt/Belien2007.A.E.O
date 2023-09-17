@@ -1,6 +1,5 @@
 ﻿namespace Belien2007.A.E.O.Classes.Results.Stochastic.SurgeonStateNumberPatients
 {
-    using System;
     using System.Collections.Immutable;
     using System.Linq;
 
@@ -8,6 +7,10 @@
 
     using Hl7.Fhir.Model;
 
+    using NGenerics.DataStructures.Trees;
+
+    using Belien2007.A.E.O.Interfaces.IndexElements.Common;
+    using Belien2007.A.E.O.Interfaces.IndexElements.Stochastic;
     using Belien2007.A.E.O.Interfaces.Indices.Common;
     using Belien2007.A.E.O.Interfaces.Indices.Stochastic;
     using Belien2007.A.E.O.Interfaces.ResultElements.Stochastic.SurgeonStateNumberPatients;
@@ -26,19 +29,43 @@
 
         public ImmutableList<ISurgeonStateNumberPatientsResultElement> Value { get; }
 
-        public ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<int>>> GetValueForOutputContext(
+        private int GetElementAtAsInt(
+            IsIndexElement sIndexElement,
+            IkIndexElement kIndexElement)
+        {
+            return this.Value
+                .Where(x => x.sIndexElement == sIndexElement && x.kIndexElement == kIndexElement)
+                .Select(x => x.Value)
+                .SingleOrDefault();
+        }
+
+        public RedBlackTree<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>> GetValueForOutputContext(
             INullableValueFactory nullableValueFactory,
             Ik k,
             Is s)
         {
-            return this.Value
-                .Select(
-                i => Tuple.Create(
-                    i.sIndexElement.Value,
-                    (INullableValue<int>)i.kIndexElement.Value,
-                    nullableValueFactory.Create<int>(
-                        i.Value)))
-                .ToImmutableList();
+            RedBlackTree<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>> outerRedBlackTree = new RedBlackTree<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>>();
+
+            foreach (IsIndexElement sIndexElement in s.Value.Values)
+            {
+                RedBlackTree<INullableValue<int>, INullableValue<int>> innerRedBlackTree = new RedBlackTree<INullableValue<int>, INullableValue<int>>();
+
+                foreach (IkIndexElement kIndexElement in k.Value.Values)
+                {
+                    innerRedBlackTree.Add(
+                        kIndexElement.Value,
+                        nullableValueFactory.Create<int>(
+                            this.GetElementAtAsInt(
+                                sIndexElement,
+                                kIndexElement)));
+                }
+
+                outerRedBlackTree.Add(
+                    sIndexElement.Value,
+                    innerRedBlackTree);
+            }
+
+            return outerRedBlackTree;
         }
     }
 }

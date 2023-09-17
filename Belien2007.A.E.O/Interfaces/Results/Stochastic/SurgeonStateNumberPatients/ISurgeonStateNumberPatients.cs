@@ -1,9 +1,10 @@
 ﻿namespace Belien2007.A.E.O.Interfaces.Results.Stochastic.SurgeonStateNumberPatients
 {
-    using System;
     using System.Collections.Immutable;
 
     using Hl7.Fhir.Model;
+
+    using NGenerics.DataStructures.Trees;
 
     using Belien2007.A.E.O.Interfaces.Indices.Common;
     using Belien2007.A.E.O.Interfaces.Indices.Stochastic;
@@ -14,7 +15,7 @@
     {
         ImmutableList<ISurgeonStateNumberPatientsResultElement> Value { get; }
 
-        ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<int>>> GetValueForOutputContext(
+        RedBlackTree<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>> GetValueForOutputContext(
             INullableValueFactory nullableValueFactory,
             Ik k,
             Is s);
