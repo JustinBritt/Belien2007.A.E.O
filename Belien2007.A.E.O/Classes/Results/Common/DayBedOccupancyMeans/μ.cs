@@ -8,6 +8,8 @@
 
     using Hl7.Fhir.Model;
 
+    using NGenerics.DataStructures.Trees;
+
     using Belien2007.A.E.O.Interfaces.IndexElements.Common;
     using Belien2007.A.E.O.Interfaces.ResultElements.Common.DayBedOccupancyMeans;
     using Belien2007.A.E.O.Interfaces.Results.Common.DayBedOccupancyMeans;
@@ -34,16 +36,20 @@
                 .SingleOrDefault();
         }
 
-        public ImmutableList<Tuple<FhirDateTime, INullableValue<decimal>>> GetValueForOutputContext(
+        public RedBlackTree<FhirDateTime, INullableValue<decimal>> GetValueForOutputContext(
             INullableValueFactory nullableValueFactory)
         {
-            return this.Value
-                .Select(
-                i => Tuple.Create(
-                    i.iIndexElement.Value,
+            RedBlackTree<FhirDateTime, INullableValue<decimal>> redBlackTree = new RedBlackTree<FhirDateTime, INullableValue<decimal>>();
+
+            foreach (IμResultElement μResultElement in this.Value)
+            {
+                redBlackTree.Add(
+                    μResultElement.iIndexElement.Value,
                     nullableValueFactory.Create<decimal>(
-                        i.Value)))
-                .ToImmutableList();
+                        μResultElement.Value));
+            }
+
+            return redBlackTree;
         }
     }
 }

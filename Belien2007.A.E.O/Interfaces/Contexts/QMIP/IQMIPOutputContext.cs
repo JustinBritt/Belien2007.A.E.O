@@ -27,7 +27,7 @@
 
         ImmutableList<Tuple<FhirDateTime, Organization, INullableValue<int>>> DaySurgeonNumberBlockAssignments { get; }
 
-        ImmutableList<Tuple<FhirDateTime, INullableValue<decimal>>> DayBedOccupancyMeans { get; }
+        RedBlackTree<FhirDateTime, INullableValue<decimal>> DayBedOccupancyMeans { get; }
 
         ImmutableList<Tuple<FhirDateTime, INullableValue<decimal>>> DayBedOccupancyVariances { get; }
     }

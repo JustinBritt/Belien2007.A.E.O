@@ -149,7 +149,7 @@
 
         public INullableValue<decimal> BedOccupancyMaximalWeightedSum { get; }
 
-        public ImmutableList<Tuple<FhirDateTime, INullableValue<decimal>>> DayBedOccupancyMeans { get; }
+        public RedBlackTree<FhirDateTime, INullableValue<decimal>> DayBedOccupancyMeans { get; }
 
         public ImmutableList<Tuple<FhirDateTime, INullableValue<decimal>>> DayBedOccupancyVariances { get; }
     }
