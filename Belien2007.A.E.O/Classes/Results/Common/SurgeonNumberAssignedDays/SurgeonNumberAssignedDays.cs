@@ -1,12 +1,12 @@
 ﻿namespace Belien2007.A.E.O.Classes.Results.Common.SurgeonNumberAssignedDays
 {
-    using System;
     using System.Collections.Immutable;
-    using System.Linq;
 
     using log4net;
 
     using Hl7.Fhir.Model;
+
+    using NGenerics.DataStructures.Trees;
 
     using Belien2007.A.E.O.Interfaces.ResultElements.Common.SurgeonNumberAssignedDays;
     using Belien2007.A.E.O.Interfaces.Results.Common.SurgeonNumberAssignedDays;
@@ -24,16 +24,21 @@
 
         public ImmutableList<ISurgeonNumberAssignedDaysResultElement> Value { get; }
 
-        public ImmutableList<Tuple<Organization, INullableValue<int>>> GetValueForOutputContext(
+        public RedBlackTree<Organization, INullableValue<int>> GetValueForOutputContext(
             INullableValueFactory nullableValueFactory)
         {
-            return this.Value
-                .Select(
-                i => Tuple.Create(
-                    i.sIndexElement.Value,
+            RedBlackTree<Organization, INullableValue<int>> redBlackTree = new RedBlackTree<Organization, INullableValue<int>>(
+                new Belien2007.A.E.O.Classes.Comparers.OrganizationComparer());
+
+            foreach (ISurgeonNumberAssignedDaysResultElement surgeonNumberAssignedDaysResultElement in this.Value)
+            {
+                redBlackTree.Add(
+                    surgeonNumberAssignedDaysResultElement.sIndexElement.Value,
                     nullableValueFactory.Create<int>(
-                        i.Value)))
-                .ToImmutableList();
+                        surgeonNumberAssignedDaysResultElement.Value));
+            }
+
+            return redBlackTree;
         }
     }
 }
