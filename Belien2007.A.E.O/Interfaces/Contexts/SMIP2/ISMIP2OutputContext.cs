@@ -5,6 +5,8 @@
 
     using Hl7.Fhir.Model;
 
+    using NGenerics.DataStructures.Trees;
+
     public interface ISMIP2OutputContext
     {
         INullableValue<decimal> BestBound { get; }
