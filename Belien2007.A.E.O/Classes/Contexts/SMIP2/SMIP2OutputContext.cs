@@ -144,7 +144,9 @@
                 x);
             
             this.SurgeonStateNumberPatients = surgeonStateNumberPatients.GetValueForOutputContext(
-                dependenciesAbstractFactory.CreateNullableValueFactory());
+                dependenciesAbstractFactory.CreateNullableValueFactory(),
+                SMIP2Model.k,
+                SMIP2Model.s);
 
             // StateNumberPatients(k)
             this.StateNumberPatients = calculationsAbstractFactory.CreateStateNumberPatientsCalculationFactory().Create()
